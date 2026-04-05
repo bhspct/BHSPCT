@@ -80,7 +80,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: linear-gradient(to bottom, rgba(45, 15, 5, 0.85), rgba(20, 5, 0, 0.95)), url('temple.png');
+            background-image: linear-gradient(to bottom, rgba(45, 15, 5, 0.85), rgba(20, 5, 0, 0.95)), url('https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -186,6 +186,7 @@
                             <a href="#events" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Events</a>
                             <a href="#blog" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Blog</a>
                             <a href="#" onclick="openContributorsModal(); return false;" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Contributors</a>
+                            <a href="#" onclick="openFeedbackModal(); return false;" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Feedback</a>
                         </div>
                     </div>
                     <div class="lg:hidden flex items-center">
@@ -203,7 +204,8 @@
                     <a href="#about" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">About Us</a>
                     <a href="#events" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Events</a>
                     <a href="#blog" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Blog</a>
-                    <a href="#" onclick="openContributorsModal(); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium transition-colors">Contributors</a>
+                    <a href="#" onclick="openContributorsModal(); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Contributors</a>
+                    <a href="#" onclick="openFeedbackModal(); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium transition-colors">Feedback</a>
                 </div>
             </div>
         </nav>
@@ -215,6 +217,14 @@
 
             <div class="text-center px-4 w-full max-w-5xl mx-auto z-10 fade-in mt-8 sm:mt-12">
                 
+                <!-- Main Circular Logo -->
+                <div class="flex justify-center mb-6 sm:mb-8">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gold/40 rounded-full blur-md group-hover:blur-xl transition-all duration-500"></div>
+                        <img src="mylogo.jpeg" alt="BHP Logo" draggable="false" onerror="this.src='https://ui-avatars.com/api/?name=BHP&background=E5C158&color=1a0800&rounded=true&size=150'" class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-gold shadow-[0_0_30px_rgba(229,193,88,0.5)] bg-black/50 backdrop-blur-sm animate-[float_6s_ease-in-out_infinite] z-10">
+                    </div>
+                </div>
+
                 <!-- Decorative Top Badge -->
                 <div class="inline-flex items-center justify-center gap-2 sm:gap-3 mb-6 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border border-gold/30 bg-gradient-to-r from-maroon/80 to-black/80 backdrop-blur-md shadow-[0_0_15px_rgba(229,193,88,0.2)] max-w-full">
                     <i class="fa-solid fa-dharmachakra text-gold text-xs sm:text-sm animate-[spin_10s_linear_infinite] shrink-0"></i>
@@ -222,6 +232,15 @@
                     <i class="fa-solid fa-dharmachakra text-gold text-xs sm:text-sm animate-[spin_10s_linear_infinite] [animation-direction:reverse] shrink-0"></i>
                 </div>
                 
+                <!-- Slogan -->
+                <div class="flex items-center justify-center gap-3 sm:gap-5 mb-4 sm:mb-6 opacity-90 hover:opacity-100 transition-opacity duration-300">
+                    <div class="h-[2px] w-10 sm:w-16 md:w-24 bg-gradient-to-r from-transparent to-saffron/80"></div>
+                    <h3 class="heading-font text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-saffron via-gold to-saffron drop-shadow-[0_0_15px_rgba(255,127,17,0.6)]">
+                        Joy Sri Ram
+                    </h3>
+                    <div class="h-[2px] w-10 sm:w-16 md:w-24 bg-gradient-to-l from-transparent to-saffron/80"></div>
+                </div>
+
                 <!-- Main Hero Title -->
                 <h1 class="heading-font text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-[0_10px_10px_rgba(0,0,0,0.9)] leading-tight tracking-wide">
                     Bangladesh Hindu<br>Students Parishad <br>
@@ -297,7 +316,7 @@
                     <div class="w-full lg:w-1/2 fade-in">
                         <div class="relative rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,127,17,0.2)] border-2 border-gold/20 group">
                             <div class="absolute inset-0 bg-gradient-to-t from-maroon/80 to-transparent z-10 opacity-60 group-hover:opacity-30 transition duration-500"></div>
-                            <img src="about.jpg" alt="Hindu Ritual" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop'" class="w-full h-[250px] sm:h-[400px] lg:h-[500px] object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop" alt="Hindu Ritual" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop'" class="w-full h-[250px] sm:h-[400px] lg:h-[500px] object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
                             <div class="absolute top-4 left-4 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-gold z-20"></div>
                             <div class="absolute bottom-4 right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-gold z-20"></div>
                         </div>
@@ -449,7 +468,7 @@
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="saikat.jpeg" alt="Saikat Day" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="saikat.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Saikat+Day&background=8B0000&color=E5C158'" alt="Saikat Day" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Saikat Day</h3>
@@ -457,7 +476,15 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Led the foundation of the Chawkbazar branch and organized major Vedic educational seminars to unite and inspire the youth.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Led the foundation of the Chawkbazar branch and organized major Vedic educational seminars to unite and inspire the youth.</p>
+                        
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/share/181zfgFTVi/" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
 
                     <!-- Contributor 2 -->
@@ -466,7 +493,7 @@
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="nishan.jpeg" alt="Nishan Kumar Nath" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="nishan.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Nishan+Kumar&background=8B0000&color=E5C158'" alt="Nishan Kumar Nath" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Nishan Kumar Nath</h3>
@@ -474,7 +501,15 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Manages all daily parishad operations, elegantly coordinates volunteer teams, and establishes seamless communication across branches.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Manages all daily parishad operations, elegantly coordinates volunteer teams, and establishes seamless communication across branches.</p>
+                        
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/share/1KhPsNtTEf/" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
 
                     <!-- Contributor 3 -->
@@ -483,7 +518,7 @@
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="rudhra.jpeg" alt="Rudhra Chakraborty" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="rudhra.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Rudhra+C&background=8B0000&color=E5C158'" alt="Rudhra Chakraborty" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Rudhra Chakraborty</h3>
@@ -491,7 +526,15 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Coordinated grassroots campaigns and introduced inclusive community programs to empower youth and strengthen civic engagement.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Coordinated grassroots campaigns and introduced inclusive community programs to empower youth and strengthen civic engagement.</p>
+
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/share/15iCdMAfM1g/" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
 
                     <!-- Contributor 4 -->
@@ -500,7 +543,7 @@
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="aushman.jpeg" alt="Aushman Chowdhury" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="aushman.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Aushman+C&background=8B0000&color=E5C158'" alt="Aushman Chowdhury" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Aushman Chowdhury</h3>
@@ -508,17 +551,24 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Oversaw administrative functions and strengthened collaborative networks, enhancing efficiency and accountability within the organization.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Oversaw administrative functions and strengthened collaborative networks, enhancing efficiency and accountability within the organization.</p>
+                        
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/share/1SWfKvkUKT/" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
 
-
-                                        <!-- Contributor 5 -->
+                    <!-- Contributor 5 -->
                     <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
                         <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="hrithik.jpeg" alt="Hrithik Chowdhury" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="hrithik.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Hrithik+C&background=8B0000&color=E5C158'" alt="Hrithik Chowdhury" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Hrithik Chowdhury</h3>
@@ -526,9 +576,16 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Directed financial planning and resource allocation as Finance Secretary, ensuring transparency and accountability in all organizational operations.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Directed financial planning and resource allocation as Finance Secretary, ensuring transparency and accountability in all organizational operations.</p>
+                        
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/share/1CE8iUNfp6/" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
-
                     
                     <!-- Contributor 6: Sarnab Bhattacharjee -->
                     <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
@@ -536,7 +593,7 @@
                         
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
-                            <img src="sarnab.gif" alt="Sarnab Bhattacharjee" draggable="false" class="w-full h-full rounded-full object-cover">
+                            <img src="sarnab.gif" onerror="this.src='https://ui-avatars.com/api/?name=Sarnab+B&background=8B0000&color=E5C158'" alt="Sarnab Bhattacharjee" draggable="false" class="w-full h-full rounded-full object-cover">
                         </div>
                         
                         <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Sarnab Bhattacharjee</h3>
@@ -544,7 +601,15 @@
                         
                         <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
                         
-                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Designed, developed, and crafted the aesthetic and structural framework of this platform, seamlessly blending modern web technology with a divine, immersive theme.</p>
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10 flex-grow mb-5">Designed, developed, and crafted the aesthetic and structural framework of this platform, seamlessly blending modern web technology with a divine, immersive theme.</p>
+                        
+                        <!-- Animated Facebook Link -->
+                        <a href="https://www.facebook.com/people/Sarnab-Bhattacharjee/pfbid02ZtZ3Z6nw1Aub5o2ZEwT89eYfaoTd3bUwWWqcCWzguNoRvL1n5M4SUCsSBwVLmtEWl/?rdid=TytJz6CagCjMGXCK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ZBdbfo6MQ%2F" target="_blank" rel="noopener noreferrer" class="relative z-10 mt-auto flex items-center justify-center group/fb" title="Visit Facebook Profile">
+                            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/50 text-[#1877F2] transition-all duration-300 group-hover/fb:bg-[#1877F2] group-hover/fb:text-white group-hover/fb:shadow-[0_0_20px_rgba(24,119,242,0.6)] group-hover/fb:-translate-y-1">
+                                <div class="absolute inset-0 rounded-full bg-[#1877F2] animate-ping opacity-20 group-hover/fb:hidden"></div>
+                                <i class="fa-brands fa-facebook-f text-lg transition-transform duration-300 group-hover/fb:scale-110 group-hover/fb:rotate-12"></i>
+                            </div>
+                        </a>
                     </div>
 
                 </div>
@@ -598,6 +663,59 @@
         </div>
     </div>
 
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 p-4">
+        <div class="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-lg border border-gold/40 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 bg-[#120500]/95" id="feedback-content">
+            <button onclick="closeFeedbackModal()" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-gold/60 hover:text-white transition-colors focus:outline-none focus:ring-0 z-20" aria-label="Close">
+                <i class="fa-solid fa-xmark text-xl sm:text-2xl"></i>
+            </button>
+            <div class="text-center shrink-0 border-b border-gold/20 pb-4 sm:pb-6 pt-2">
+                <h2 class="heading-font text-2xl sm:text-3xl text-gold font-bold mb-2">Your Feedback</h2>
+                <p class="text-saffron text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold">Help Us Serve You Better</p>
+            </div>
+            
+            <form id="feedback-form" class="flex flex-col gap-4 sm:gap-5 overflow-y-auto custom-scrollbar flex-grow pt-6 px-1">
+                <div>
+                    <label for="fb-name" class="block text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">Name *</label>
+                    <input type="text" id="fb-name" name="Name" required class="w-full bg-black/50 border border-gold/30 rounded-xl px-4 py-3 text-white placeholder-orange-100/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-sm" placeholder="Enter your name">
+                </div>
+                <div>
+                    <label for="fb-email" class="block text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">Email (Optional)</label>
+                    <input type="email" id="fb-email" name="Email" class="w-full bg-black/50 border border-gold/30 rounded-xl px-4 py-3 text-white placeholder-orange-100/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-sm" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">Rate Your Experience *</label>
+                    <div class="relative">
+                        <select name="Rating" required class="w-full bg-black/50 border border-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all appearance-none cursor-pointer text-sm">
+                            <option value="" disabled selected class="text-gray-500">Select a rating...</option>
+                            <option value="5 - Excellent" class="bg-[#1a0800] text-white">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4 - Good" class="bg-[#1a0800] text-white">⭐⭐⭐⭐ Good</option>
+                            <option value="3 - Average" class="bg-[#1a0800] text-white">⭐⭐⭐ Average</option>
+                            <option value="2 - Fair" class="bg-[#1a0800] text-white">⭐⭐ Fair</option>
+                            <option value="1 - Poor" class="bg-[#1a0800] text-white">⭐ Poor</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gold">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="fb-message" class="block text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">Message *</label>
+                    <textarea id="fb-message" name="Message" required rows="4" class="w-full bg-black/50 border border-gold/30 rounded-xl px-4 py-3 text-white placeholder-orange-100/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all resize-none custom-scrollbar text-sm" placeholder="Share your thoughts or suggestions..."></textarea>
+                </div>
+                
+                <!-- Status Message Area -->
+                <div id="fb-status" class="hidden text-center text-xs sm:text-sm py-2.5 rounded-xl border font-medium transition-all"></div>
+                
+                <button type="submit" id="fb-submit-btn" class="mt-2 mb-2 w-full px-6 py-3.5 rounded-xl bg-gradient-to-r from-saffron to-deepred text-white font-bold hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all focus:outline-none focus:ring-0 tracking-wider text-sm sm:text-base flex items-center justify-center gap-2 group overflow-hidden relative border border-gold/30">
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span class="relative">Send Feedback</span> 
+                    <i class="fa-solid fa-paper-plane relative group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- ========================================== -->
     <!-- APPLICATION LOGIC (JAVASCRIPT)             -->
     <!-- ========================================== -->
@@ -614,7 +732,12 @@
                 title: 'Awakening of the New Generation in the Light of Vedic Scriptures<br><span class="text-gold text-lg md:text-xl mt-2 block font-medium">Vedic Seminar 2025</span>', 
                 date: '2025-02-15', 
                 description: 'The Vedic Seminar 2025 aims to inspire the younger generation by sharing timeless wisdom, cultural heritage, and values from ancient scriptures, while guiding them toward a stronger sense of self-discovery.', 
-                images: ['1.jpeg', '2.jpeg', '3.jpeg'], 
+                // PREVIEW EDIT: Replaced local images with Unsplash images so you can see the carousel
+                images: [
+                    'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop', 
+                    'https://images.unsplash.com/photo-1590005354167-6da97ce231ce?q=80&w=800&auto=format&fit=crop', 
+                    'https://images.unsplash.com/photo-1604605801370-349f2b87fcf3?q=80&w=800&auto=format&fit=crop'
+                ], 
                 link: '', 
                 type: 'past' 
             },
@@ -622,7 +745,7 @@
                 id: 'ev-2', 
                 title: 'Coming Soon...', 
                 date: 'Not declared yet!', 
-                img: '7.png', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?q=80&w=800&auto=format&fit=crop', 
                 link: 'reg.html', 
                 type: 'upcoming' 
             },
@@ -630,7 +753,7 @@
                 id: 'ev-3', 
                 title: 'Coming Soon...', 
                 date: 'Not declared yet!', 
-                img: '7.png', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?q=80&w=800&auto=format&fit=crop', 
                 link: 'reg.html', 
                 type: 'upcoming' 
             }
@@ -728,6 +851,60 @@
 
         setupModal('openContributorsModal', 'closeContributorsModal', 'contributors-modal', 'contributors-content');
         setupModal('showYoutubeModal', 'closeYoutubeModal', 'yt-modal', 'yt-content');
+        setupModal('openFeedbackModal', 'closeFeedbackModal', 'feedback-modal', 'feedback-content');
+
+        // Feedback Form Submission Logic (Google Sheets Integration)
+        const feedbackForm = document.getElementById('feedback-form');
+        const fbStatus = document.getElementById('fb-status');
+        const fbSubmitBtn = document.getElementById('fb-submit-btn');
+
+        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+        if(feedbackForm) {
+            feedbackForm.addEventListener('submit', e => {
+                e.preventDefault();
+                
+                // Optional: Check if URL has been replaced
+                if(scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    fbStatus.classList.remove('hidden', 'bg-green-500/20', 'text-green-400', 'border-green-500/50');
+                    fbStatus.classList.add('bg-red-500/20', 'text-red-400', 'border-red-500/50');
+                    fbStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-1"></i> Developer Notice: Google Sheets Web App URL missing.';
+                    return;
+                }
+
+                // Loading State
+                fbSubmitBtn.disabled = true;
+                fbSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-lg"></i> <span class="relative">Submitting...</span>';
+                fbStatus.classList.add('hidden');
+                
+                fetch(scriptURL, { method: 'POST', body: new FormData(feedbackForm)})
+                    .then(response => {
+                        fbStatus.classList.remove('hidden', 'bg-red-500/20', 'text-red-400', 'border-red-500/50');
+                        fbStatus.classList.add('bg-green-500/20', 'text-green-400', 'border-green-500/50');
+                        fbStatus.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Thank you! Your feedback has been sent safely.';
+                        feedbackForm.reset();
+                        
+                        // Reset button after success
+                        setTimeout(() => {
+                            fbSubmitBtn.disabled = false;
+                            fbSubmitBtn.innerHTML = '<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div><span class="relative">Send Feedback</span> <i class="fa-solid fa-paper-plane relative group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
+                            closeFeedbackModal();
+                            fbStatus.classList.add('hidden');
+                        }, 3500);
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        fbStatus.classList.remove('hidden', 'bg-green-500/20', 'text-green-400', 'border-green-500/50');
+                        fbStatus.classList.add('bg-red-500/20', 'text-red-400', 'border-red-500/50');
+                        fbStatus.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1"></i> Oops! Something went wrong. Try again.';
+                        
+                        // Reset button after error
+                        fbSubmitBtn.disabled = false;
+                        fbSubmitBtn.innerHTML = '<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div><span class="relative">Send Feedback</span> <i class="fa-solid fa-paper-plane relative group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
+                    });
+            });
+        }
 
         // Terms & Conditions Logic
         window.openTncModal = function(mode) {
@@ -885,7 +1062,7 @@
         // ==========================================
         
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle Loading Screen (5 seconds)
+            // Handle Loading Screen (PREVIEW EDIT: reduced from 5s to 2s)
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 if (loader) {
@@ -902,7 +1079,7 @@
                 if (!localStorage.getItem('bhp_tnc_status')) {
                     setTimeout(() => window.openTncModal('load'), 1000);
                 }
-            }, 5000);
+            }, 2000);
 
             window.renderPublicData();
         });
