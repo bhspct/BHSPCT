@@ -221,7 +221,7 @@
                 <div class="flex justify-center mb-6 sm:mb-8">
                     <div class="relative group">
                         <div class="absolute inset-0 bg-gold/40 rounded-full blur-md group-hover:blur-xl transition-all duration-500"></div>
-                        <img src="mylogo.jpeg" alt="BHP Logo" draggable="false" onerror="this.src='https://ui-avatars.com/api/?name=BHP&background=E5C158&color=1a0800&rounded=true&size=150'" class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-gold shadow-[0_0_30px_rgba(229,193,88,0.5)] bg-black/50 backdrop-blur-sm animate-[float_6s_ease-in-out_infinite] z-10">
+                        <img src="mylogo.png" alt="BHP Logo" draggable="false" onerror="this.src='https://ui-avatars.com/api/?name=BHP&background=E5C158&color=1a0800&rounded=true&size=150'" class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-gold shadow-[0_0_30px_rgba(229,193,88,0.5)] bg-black/50 backdrop-blur-sm animate-[float_6s_ease-in-out_infinite] z-10">
                     </div>
                 </div>
 
@@ -316,7 +316,7 @@
                     <div class="w-full lg:w-1/2 fade-in">
                         <div class="relative rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,127,17,0.2)] border-2 border-gold/20 group">
                             <div class="absolute inset-0 bg-gradient-to-t from-maroon/80 to-transparent z-10 opacity-60 group-hover:opacity-30 transition duration-500"></div>
-                            <img src="about.jpg" alt="Hindu Ritual" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop'" class="w-full h-[250px] sm:h-[400px] lg:h-[500px] object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <img src="https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop" alt="Hindu Ritual" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop'" class="w-full h-[250px] sm:h-[400px] lg:h-[500px] object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
                             <div class="absolute top-4 left-4 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-gold z-20"></div>
                             <div class="absolute bottom-4 right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-gold z-20"></div>
                         </div>
@@ -779,9 +779,9 @@
                 description: 'The Vedic Seminar 2025 aims to inspire the younger generation by sharing timeless wisdom, cultural heritage, and values from ancient scriptures, while guiding them toward a stronger sense of self-discovery.', 
                 // PREVIEW EDIT: Replaced local images with Unsplash images so you can see the carousel
                 images: [
-                    '1.jpeg', 
-                    '2.jpeg', 
-                    '3.jpeg'
+                    'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop', 
+                    'https://images.unsplash.com/photo-1590005354167-6da97ce231ce?q=80&w=800&auto=format&fit=crop', 
+                    'https://images.unsplash.com/photo-1604605801370-349f2b87fcf3?q=80&w=800&auto=format&fit=crop'
                 ], 
                 link: '', 
                 type: 'past' 
@@ -790,7 +790,7 @@
                 id: 'ev-2', 
                 title: 'Coming Soon...', 
                 date: 'Not declared yet!', 
-                img: '7.png', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?q=80&w=800&auto=format&fit=crop', 
                 link: 'reg.html', 
                 type: 'upcoming' 
             },
@@ -798,7 +798,7 @@
                 id: 'ev-3', 
                 title: 'Coming Soon...', 
                 date: 'Not declared yet!', 
-                img: '7.png', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?q=80&w=800&auto=format&fit=crop', 
                 link: 'reg.html', 
                 type: 'upcoming' 
             }
@@ -809,14 +809,14 @@
                 id: 'bl-1', 
                 title: 'The Essence of Karma Yoga', 
                 date: 'March 10, 2024', 
-                img: '', 
+                img: 'https://images.unsplash.com/photo-1507676184212-d0330a151528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
                 content: 'Understanding duty without attachment to the results is the core teaching of Lord Krishna in the Bhagavad Gita...' 
             },
             { 
                 id: 'bl-2', 
                 title: 'Significance of Fasting in Sanatana Dharma', 
                 date: 'February 22, 2024', 
-                img: '', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
                 content: 'Fasting (Vrata) is not just abstaining from food, but an exercise in self-discipline and drawing closer to the divine...' 
             }
         ];
@@ -903,20 +903,12 @@
         const fbStatus = document.getElementById('fb-status');
         const fbSubmitBtn = document.getElementById('fb-submit-btn');
 
-        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzQ4YDSduPsLVZHvKrwNfWSTL7O7i--S4a5mgtlJAZJ0AQYSZJd_p19RArS08l69Xng/exec';
+        // IMPORTANT: Paste your actual Google Apps Script Web App URL below
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
         if(feedbackForm) {
             feedbackForm.addEventListener('submit', e => {
                 e.preventDefault();
-                
-                // Optional: Check if URL has been replaced
-                if(scriptURL === 'https://script.google.com/macros/s/AKfycbzQ4YDSduPsLVZHvKrwNfWSTL7O7i--S4a5mgtlJAZJ0AQYSZJd_p19RArS08l69Xng/exec') {
-                    fbStatus.classList.remove('hidden', 'bg-green-500/20', 'text-green-400', 'border-green-500/50');
-                    fbStatus.classList.add('bg-red-500/20', 'text-red-400', 'border-red-500/50');
-                    fbStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-1"></i> Developer Notice: Google Sheets Web App URL missing.';
-                    return;
-                }
 
                 // Loading State
                 fbSubmitBtn.disabled = true;
@@ -1044,7 +1036,7 @@
             if(upcomingContainer) {
                 const upcomingEvents = window.eventsData.filter(e => e.type === 'upcoming');
                 upcomingContainer.innerHTML = upcomingEvents.map(event => `
-                    <div class="glass-panel rounded-3xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition duration-500 border border-gold/20 hover:border-gold/50 hover:shadow-[0_15px_50px_rgba(255,127,17,0.3)] group relative">
+                    <div class="glass-panel rounded-3xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition duration-500 border border-gold/20 hover:border-gold/50 hover:shadow-[0_15px_50px_rgba(255,127,17,0.3)] group relative h-full">
                         <!-- Decorative glow -->
                         <div class="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-saffron/20 rounded-full blur-[40px] sm:blur-[50px] group-hover:bg-saffron/40 transition-all duration-700 z-0 pointer-events-none"></div>
 
