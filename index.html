@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========================================== -->
+    <!-- 1. META DATA & LINKS                       -->
+    <!-- ========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Hindu Students Parishad, Chawkbazar Thana</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel (Headings), Poppins (Body) & Great Vibes (Logo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ========================================== -->
+    <!-- 2. TAILWIND CONFIGURATION                  -->
+    <!-- ========================================== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF7F11',
+                        deepred: '#8B0000',
+                        maroon: '#3E0C00',
+                        gold: '#E5C158',
+                        sand: '#FDE6C8',
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                        logo: ['Great Vibes', 'cursive'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            'from': { textShadow: '0 0 10px rgba(229,193,88,0.5)' },
+                            'to': { textShadow: '0 0 20px rgba(229,193,88,1), 0 0 30px rgba(255,127,17,0.8)' }
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 3. CUSTOM CSS STYLES                       -->
+    <!-- ========================================== -->
+    <style>
+        /* Base & Anti-Select Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a0800;
+            color: #FDE6C8;
+            overflow-x: hidden;
+            /* Prevent text selection site-wide */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Fixed Divine Background */
+        .bg-divine {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(45, 15, 5, 0.85), rgba(20, 5, 0, 0.95)), url('temple.png');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        /* UI Components */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(255, 180, 100, 0.05), rgba(255, 100, 50, 0.02));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 193, 88, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .heading-font { font-family: 'Cinzel', serif; }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 20px;
+        }
+        .carousel-container::-webkit-scrollbar { display: none; }
+        .carousel-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a0800; border-left: 1px solid rgba(229,193,88,0.1); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #8B0000, #FF7F11); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #E5C158; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(229,193,88,0.4); border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(229,193,88,0.8); }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(to right, #E5C158, #FFF2C8, #E5C158);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased relative overflow-hidden" oncontextmenu="return false;">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[99999] bg-[#1a0800] flex flex-col items-center justify-center transition-opacity duration-1000">
+        <div class="absolute inset-0 bg-divine opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 mb-6 relative flex items-center justify-center">
+                <!-- Outer spinning ring -->
+                <div class="absolute inset-0 border-t-4 border-gold border-solid rounded-full animate-spin"></div>
+                <!-- Inner spinning ring (reverse) -->
+                <div class="absolute inset-2 border-l-4 border-saffron border-solid rounded-full animate-[spin_1.5s_reverse_infinite]"></div>
+                <!-- Center Om symbol -->
+                <i class="fa-solid fa-om text-3xl sm:text-4xl text-gold drop-shadow-[0_0_15px_rgba(229,193,88,0.8)] animate-pulse"></i>
+            </div>
+            <h2 class="font-logo text-5xl sm:text-6xl md:text-7xl font-semibold text-gradient-gold drop-shadow-[0_0_12px_rgba(229,193,88,0.5)] mb-4 py-2 px-6 leading-loose inline-block">BHP</h2>
+            <p class="text-saffron text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase font-bold animate-pulse">Awakening Dharma...</p>
+        </div>
+    </div>
+
+    <!-- Fixed Background -->
+    <div class="bg-divine"></div>
+
+    <!-- ========================================== -->
+    <!-- PUBLIC VIEW CONTAINER                      -->
+    <!-- ========================================== -->
+    <div id="public-view" class="min-h-screen flex flex-col">
+        
+        <!-- === NAVBAR === -->
+        <nav class="glass-panel fixed w-full z-50 transition-all duration-300 border-b border-gold/20" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 sm:h-20">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#home" class="font-logo text-3xl sm:text-4xl md:text-5xl font-semibold text-gradient-gold drop-shadow-[0_0_12px_rgba(229,193,88,0.5)] hover:scale-105 transition-transform duration-300 cursor-pointer py-2 pr-4 pl-1 leading-loose inline-block">
+                            BHP
+                        </a>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="ml-10 flex items-baseline space-x-6 xl:space-x-8">
+                            <a href="#home" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                            <a href="#about" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                            <a href="#events" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Events</a>
+                            <a href="#blog" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Blog</a>
+                            <a href="#" onclick="openContributorsModal(); return false;" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Contributors</a>
+                        </div>
+                    </div>
+                    <div class="lg:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="text-gold hover:text-white focus:outline-none transition-colors p-2">
+                            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden bg-black/95 backdrop-blur-xl border-t border-gold/20 absolute w-full left-0 top-16 sm:top-20 shadow-2xl transition-all duration-300">
+                <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col text-center">
+                    <a href="#home" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Home</a>
+                    <a href="#about" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">About Us</a>
+                    <a href="#events" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Events</a>
+                    <a href="#blog" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Blog</a>
+                    <a href="#" onclick="openContributorsModal(); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium transition-colors">Contributors</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === HERO SECTION === -->
+        <section id="home" class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-48 lg:pb-32 flex items-center justify-center min-h-screen overflow-hidden">
+            <div class="absolute top-1/4 left-5 sm:left-10 w-48 h-48 sm:w-64 sm:h-64 bg-saffron/20 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-5 sm:right-10 w-64 h-64 sm:w-80 sm:h-80 bg-deepred/30 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+
+            <div class="text-center px-4 w-full max-w-5xl mx-auto z-10 fade-in mt-8 sm:mt-12">
+                
+                <!-- Decorative Top Badge -->
+                <div class="inline-flex items-center justify-center gap-2 sm:gap-3 mb-6 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border border-gold/30 bg-gradient-to-r from-maroon/80 to-black/80 backdrop-blur-md shadow-[0_0_15px_rgba(229,193,88,0.2)] max-w-full">
+                    <i class="fa-solid fa-dharmachakra text-gold text-xs sm:text-sm animate-[spin_10s_linear_infinite] shrink-0"></i>
+                    <h2 class="text-gold text-[10px] sm:text-sm md:text-lg tracking-[0.1em] sm:tracking-[0.25em] uppercase font-bold truncate whitespace-normal leading-tight">Om Namo Bhagavate Vasudevaya</h2>
+                    <i class="fa-solid fa-dharmachakra text-gold text-xs sm:text-sm animate-[spin_10s_linear_infinite] [animation-direction:reverse] shrink-0"></i>
+                </div>
+                
+                <!-- Main Hero Title -->
+                <h1 class="heading-font text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-[0_10px_10px_rgba(0,0,0,0.9)] leading-tight tracking-wide">
+                    Bangladesh Hindu<br>Students Parishad, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-saffron to-gold animate-glow inline-block mt-1 sm:mt-2">Chawkbazar Thana</span>
+                </h1>
+                
+                <p class="mt-4 sm:mt-6 text-base sm:text-lg md:text-2xl text-orange-100/90 max-w-3xl mx-auto mb-8 sm:mb-10 drop-shadow-2xl font-light leading-relaxed px-2">
+                    Upholding Dharma, uniting the community, and celebrating our rich cultural and spiritual heritage together in peace and devotion.
+                </p>
+
+                <!-- 'Wanna Join Us?' Divider -->
+                <div class="max-w-xs sm:max-w-md mx-auto mb-6 sm:mb-8 relative">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gold/30"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                        <span class="px-4 sm:px-5 py-1 sm:py-1.5 rounded-full bg-black/80 border border-gold/30 text-xs sm:text-sm font-bold tracking-[0.15em] sm:tracking-[0.2em] text-saffron uppercase shadow-[0_0_10px_rgba(255,127,17,0.3)] backdrop-blur-sm whitespace-nowrap">
+                            <i class="fa-solid fa-hands-praying mr-1.5 sm:mr-2 text-gold"></i> Wanna join us?
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 w-full px-4 sm:px-0">
+                    <a href="member.html" draggable="false" class="w-full sm:w-auto group relative px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-saffron to-deepred text-white font-bold shadow-[0_0_25px_rgba(255,127,17,0.4)] hover:shadow-[0_0_40px_rgba(255,127,17,0.8)] transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gold/50 focus:outline-none focus:ring-0 flex justify-center">
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                        <span class="relative flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg whitespace-nowrap"><i class="fa-solid fa-user-plus"></i> Become a Member</span>
+                    </a>
+                    <a href="#events" draggable="false" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full glass-panel text-gold font-bold hover:bg-white/10 hover:text-white transition-all duration-300 transform hover:-translate-y-1 border border-gold/40 focus:outline-none focus:ring-0 flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg shadow-[0_0_15px_rgba(229,193,88,0.1)] whitespace-nowrap">
+                        <i class="fa-regular fa-calendar-check"></i> Upcoming Events
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === ABOUT SECTION === -->
+        <section id="about" class="py-16 md:py-24 relative z-10 glass-panel border-x-0 mt-6 md:mt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
+                    <div class="w-full lg:w-1/2 fade-in">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="h-[1px] w-8 sm:w-12 bg-gold"></div>
+                            <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold">Our Identity</span>
+                        </div>
+                        <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4 sm:mb-6">About Our <span class="text-gold">Parishad</span></h2>
+                        <p class="text-orange-100/90 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light">
+                            The Bangladesh Hindu Students Parishad Chawkbazar Thana stands as a beacon of unity, spirituality, and cultural preservation for the Sanatana Dharma community in Chattogram.
+                        </p>
+                        <p class="text-orange-100/70 text-sm sm:text-md mb-6 sm:mb-8 leading-relaxed font-light">
+                            Our mission is to foster a sense of brotherhood, uphold our divine traditions, and provide a platform for collective worship, learning, and social service. Through our various events, festivals, and spiritual gatherings, we strive to nurture the younger generation with the timeless wisdom of our ancestors.
+                        </p>
+                        <ul class="space-y-4 sm:space-y-5 text-sand font-medium text-sm sm:text-base">
+                            <li class="flex items-center group">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-deepred/50 border border-gold/30 flex items-center justify-center mr-3 sm:mr-4 group-hover:bg-saffron transition-colors shadow-[0_0_10px_rgba(229,193,88,0.2)]">
+                                    <i class="fa-solid fa-om text-gold group-hover:text-white text-sm sm:text-lg transition-colors"></i>
+                                </div>
+                                Spiritual Harmony & Unity
+                            </li>
+                            <li class="flex items-center group">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-deepred/50 border border-gold/30 flex items-center justify-center mr-3 sm:mr-4 group-hover:bg-saffron transition-colors shadow-[0_0_10px_rgba(229,193,88,0.2)]">
+                                    <i class="fa-solid fa-hands-holding-circle text-gold group-hover:text-white text-sm sm:text-lg transition-colors"></i>
+                                </div>
+                                Social Welfare & Support
+                            </li>
+                            <li class="flex items-center group">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-deepred/50 border border-gold/30 flex items-center justify-center mr-3 sm:mr-4 group-hover:bg-saffron transition-colors shadow-[0_0_10px_rgba(229,193,88,0.2)]">
+                                    <i class="fa-solid fa-book-open text-gold group-hover:text-white text-sm sm:text-lg transition-colors"></i>
+                                </div>
+                                Vedic Education & Cultural Events
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-1/2 fade-in">
+                        <div class="relative rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,127,17,0.2)] border-2 border-gold/20 group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-maroon/80 to-transparent z-10 opacity-60 group-hover:opacity-30 transition duration-500"></div>
+                            <img src="6.jpg" alt="Hindu Ritual" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=1920&auto=format&fit=crop'" class="w-full h-[250px] sm:h-[400px] lg:h-[500px] object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <div class="absolute top-4 left-4 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-gold z-20"></div>
+                            <div class="absolute bottom-4 right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-gold z-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PAST EVENTS SECTION === -->
+        <section class="py-16 md:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 sm:mb-16 fade-in px-4">
+                    <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Memories</span>
+                    <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Glorious <span class="text-gold">Past Events</span></h2>
+                    <div class="flex justify-center items-center gap-2">
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                        <i class="fa-solid fa-dharmachakra text-gold text-sm sm:text-base"></i>
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                    </div>
+                </div>
+                
+                <div class="relative px-0 sm:px-4 group/carousel">
+                    <!-- Adjusted buttons for mobile so they don't get cut off -->
+                    <button id="prevBtn" class="absolute left-2 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-maroon/90 border border-gold/30 hover:bg-saffron text-gold hover:text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full z-20 flex items-center justify-center transition shadow-[0_0_15px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-0 opacity-80 hover:opacity-100">
+                        <i class="fa-solid fa-chevron-left text-base sm:text-xl"></i>
+                    </button>
+                    
+                    <div id="past-events-carousel" class="carousel-container gap-6 sm:gap-8 py-4 px-4 sm:px-2">
+                        <!-- Dynamically populated by JS (Static Database) -->
+                    </div>
+
+                    <button id="nextBtn" class="absolute right-2 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-maroon/90 border border-gold/30 hover:bg-saffron text-gold hover:text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full z-20 flex items-center justify-center transition shadow-[0_0_15px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-0 opacity-80 hover:opacity-100">
+                        <i class="fa-solid fa-chevron-right text-base sm:text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- === UPCOMING EVENTS SECTION === -->
+        <section id="events" class="py-16 md:py-24 relative z-10 glass-panel border-x-0">
+            <div class="absolute inset-0 bg-maroon/20 pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-10 sm:mb-16 fade-in">
+                    <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Join Us</span>
+                    <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Upcoming <span class="text-gold">Gatherings</span></h2>
+                    <p class="text-orange-100/80 max-w-2xl mx-auto text-sm sm:text-base px-2">Register easily via Google Forms to participate in our holy gatherings and spiritual programs.</p>
+                    <div class="flex justify-center items-center gap-2 mt-4 sm:mt-6">
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                        <i class="fa-solid fa-bell text-gold text-sm sm:text-base"></i>
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                    </div>
+                </div>
+
+                <div id="upcoming-events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+                    <!-- Dynamically populated by JS (Static Database) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- === BLOG SECTION === -->
+        <section id="blog" class="py-16 md:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 sm:mb-16 fade-in">
+                    <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Wisdom</span>
+                    <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Spiritual <span class="text-gold">Insights</span></h2>
+                    <div class="flex justify-center items-center gap-2 mt-3 sm:mt-4">
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                        <i class="fa-solid fa-book text-gold text-sm sm:text-base"></i>
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto fade-in">
+                    <div class="glass-panel rounded-3xl overflow-hidden flex flex-col md:flex-row transform hover:-translate-y-2 transition duration-500 border-gold/20 hover:border-gold/50 hover:shadow-[0_10px_40px_rgba(255,127,17,0.2)] group">
+                        <div class="w-full md:w-5/12 relative overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[auto]">
+                            <div class="absolute inset-0 bg-maroon/20 group-hover:bg-transparent transition duration-500 z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1507676184212-d0330a151528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vedic Library" draggable="false" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                        </div>
+                        <div class="p-6 sm:p-8 md:p-10 w-full md:w-7/12 flex flex-col justify-center bg-gradient-to-br from-black/40 to-maroon/20 text-center md:text-left">
+                            <span class="bg-deepred/80 text-gold text-[10px] sm:text-xs font-bold tracking-wider px-3 py-1 rounded-full w-max mb-4 border border-gold/30 shadow-lg mx-auto md:mx-0">Wisdom Library</span>
+                            <h3 class="heading-font text-xl sm:text-2xl md:text-3xl text-gold mb-3 sm:mb-4 group-hover:text-white transition-colors">Explore Our Articles</h3>
+                            <p class="text-orange-100/70 text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed font-light">Dive deeper into the essence of Sanatana Dharma. Read our comprehensive collection of spiritual insights, articles on Vedic scriptures, and community news.</p>
+                            <a href="article1.html" draggable="false" class="inline-flex items-center justify-center bg-gradient-to-r from-saffron to-deepred text-white font-bold py-3 sm:py-3.5 px-6 sm:px-8 rounded-xl hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all uppercase tracking-wider text-xs sm:text-sm focus:outline-none focus:ring-0 w-full sm:w-max mx-auto md:mx-0">
+                                Visit Articles Page <i class="fa-solid fa-arrow-right-long ml-2 sm:ml-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === FOOTER === -->
+        <footer class="glass-panel border-t border-gold/20 mt-auto relative z-10 pt-12 sm:pt-16 pb-6 sm:pb-8 bg-black/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 border-b border-gold/10 pb-10">
+                    <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                        <h3 class="font-logo text-4xl sm:text-5xl font-semibold text-gradient-gold drop-shadow-[0_0_12px_rgba(229,193,88,0.3)] mb-3 sm:mb-4 inline-block py-2 pr-6 pl-2 leading-loose -ml-2 -mt-2 md:-mt-4">BHP</h3>
+                        <p class="text-xs sm:text-sm text-orange-100/70 md:pr-8 leading-relaxed max-w-xs sm:max-w-sm">Upholding the divine values of Sanatana Dharma in Chattogram, Bangladesh. Uniting devotees for a peaceful and thriving community.</p>
+                    </div>
+                    <div class="text-center flex flex-col items-center">
+                        <h4 class="heading-font text-lg sm:text-xl font-semibold text-gold mb-4 sm:mb-6 mt-2">Quick Links</h4>
+                        <ul class="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-orange-100/80">
+                            <li><a href="#home" draggable="false" class="hover:text-saffron transition flex items-center justify-center gap-2"><i class="fa-solid fa-caret-right text-xs"></i> Home</a></li>
+                            <li><a href="#events" draggable="false" class="hover:text-saffron transition flex items-center justify-center gap-2"><i class="fa-solid fa-caret-right text-xs"></i> Events</a></li>
+                            <li><a href="#blog" draggable="false" class="hover:text-saffron transition flex items-center justify-center gap-2"><i class="fa-solid fa-caret-right text-xs"></i> Blog</a></li>
+                            <li><a href="#" draggable="false" onclick="openContributorsModal(); return false;" class="hover:text-saffron transition flex items-center justify-center gap-2"><i class="fa-solid fa-users text-xs"></i> Contributors</a></li>
+                            <li><a href="#" draggable="false" onclick="openTncModal('footer'); return false;" class="hover:text-saffron transition flex items-center justify-center gap-2"><i class="fa-solid fa-file-contract text-xs"></i> Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="text-center md:text-right flex flex-col items-center md:items-end">
+                        <h4 class="heading-font text-lg sm:text-xl font-semibold text-gold mb-4 sm:mb-6 mt-2">Connect With Us</h4>
+                        <div class="flex justify-center md:justify-end space-x-3 sm:space-x-4">
+                            <a href="https://www.facebook.com/share/1CWv3Gzbuz/" draggable="false" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold/30 bg-black/40 flex items-center justify-center text-gold hover:bg-saffron hover:border-saffron hover:text-white transition-all transform hover:scale-110 shadow-[0_0_10px_rgba(229,193,88,0.1)] focus:outline-none focus:ring-0"><i class="fa-brands fa-facebook-f text-base sm:text-lg"></i></a>
+                            <a href="#" draggable="false" onclick="showYoutubeModal(); return false;" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold/30 bg-black/40 flex items-center justify-center text-gold hover:bg-saffron hover:border-saffron hover:text-white transition-all transform hover:scale-110 shadow-[0_0_10px_rgba(229,193,88,0.1)] focus:outline-none focus:ring-0"><i class="fa-brands fa-youtube text-base sm:text-lg"></i></a>
+                            <a href="mailto:kumarnathnishan@gmail.com" draggable="false" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold/30 bg-black/40 flex items-center justify-center text-gold hover:bg-saffron hover:border-saffron hover:text-white transition-all transform hover:scale-110 shadow-[0_0_10px_rgba(229,193,88,0.1)] focus:outline-none focus:ring-0"><i class="fa-solid fa-envelope text-base sm:text-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-xs sm:text-sm text-orange-100/50 flex flex-col items-center justify-center px-4">
+                    <p>&copy; <span id="year"></span> Bangladesh Hindu Students Parishad, Chawkbazar Thana. <span class="hidden md:inline mx-2 text-gold/30">|</span> <span class="block md:inline mt-1 md:mt-0">All Rights Reserved. Om Shanti.</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODALS SECTION                             -->
+    <!-- ========================================== -->
+    
+    <!-- Contributors Modal (REDESIGNED) -->
+    <div id="contributors-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 p-4 lg:p-10">
+        <div class="glass-panel p-6 md:p-10 rounded-3xl w-full max-w-6xl border border-gold/40 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 bg-[#120500]/95" id="contributors-content">
+            
+            <button onclick="closeContributorsModal()" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-gold/60 hover:text-white transition-colors focus:outline-none focus:ring-0 z-20" aria-label="Close">
+                <i class="fa-solid fa-xmark text-2xl sm:text-3xl"></i>
+            </button>
+            
+            <div class="text-center shrink-0 border-b border-gold/20 pb-4 sm:pb-6 pt-2">
+                <h2 class="heading-font text-2xl sm:text-3xl md:text-5xl text-gold font-bold mb-2 sm:mb-3">Our Pillars of Strength</h2>
+                <p class="text-saffron text-[10px] sm:text-sm md:text-base uppercase tracking-[0.15em] sm:tracking-[0.25em] font-semibold">The Devoted Contributors</p>
+            </div>
+            
+            <div class="overflow-y-auto custom-scrollbar flex-grow pt-8 sm:pt-10 pb-8 px-2 sm:px-4">
+                <div class="flex flex-wrap justify-center gap-6 lg:gap-8">
+                    
+                    <!-- Contributor 1 -->
+                    <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
+                            <img src="https://ui-avatars.com/api/?name=Arup+Ratan&background=8B0000&color=E5C158&size=200&bold=true" alt="Arup Ratan" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Arup Ratan</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-4 relative z-10">President</p>
+                        
+                        <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
+                        
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Led the foundation of the Chawkbazar branch and organized major Vedic educational seminars to unite and inspire the youth.</p>
+                    </div>
+
+                    <!-- Contributor 2 -->
+                    <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
+                            <img src="https://ui-avatars.com/api/?name=Joydeb+Kumar&background=8B0000&color=E5C158&size=200&bold=true" alt="Joydeb Kumar" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Joydeb Kumar</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-4 relative z-10">General Secretary</p>
+                        
+                        <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
+                        
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Manages all daily parishad operations, elegantly coordinates volunteer teams, and establishes seamless communication across branches.</p>
+                    </div>
+
+                    <!-- Contributor 3 -->
+                    <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
+                            <img src="https://ui-avatars.com/api/?name=Sumon+Das&background=8B0000&color=E5C158&size=200&bold=true" alt="Sumon Das" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Sumon Das</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-4 relative z-10">Social Welfare Lead</p>
+                        
+                        <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
+                        
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Spearheaded the annual flood relief efforts and established weekly food distribution programs dedicated to the underprivileged.</p>
+                    </div>
+
+                    <!-- Contributor 4 -->
+                    <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
+                            <img src="https://ui-avatars.com/api/?name=Kumar+Nath&background=8B0000&color=E5C158&size=200&bold=true" alt="Kumar Nath Nishan" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Kumar Nath Nishan</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-4 relative z-10">IT & Media Secretary</p>
+                        
+                        <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
+                        
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Architected and engineered the official website, modernizing the parishad's digital presence to spread the message of Sanatana Dharma globally.</p>
+                    </div>
+
+                    <!-- Contributor 5: Sarnab Bhattacharjee -->
+                    <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <!-- [IMAGE OPTION]: Replace 'src' URL with the contributor's actual profile image link -->
+                            <img src="https://ui-avatars.com/api/?name=Sarnab+Bhattacharjee&background=8B0000&color=E5C158&size=200&bold=true" alt="Sarnab Bhattacharjee" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-white font-bold text-xl sm:text-2xl group-hover:text-gold transition-colors relative z-10 mb-1">Sarnab Bhattacharjee</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-4 relative z-10">Website Creator & Designer</p>
+                        
+                        <div class="w-10 sm:w-12 h-[2px] bg-gold/40 mb-4 sm:mb-5 group-hover:w-20 sm:group-hover:w-24 group-hover:bg-gold transition-all duration-500 relative z-10"></div>
+                        
+                        <p class="text-orange-100/70 text-xs sm:text-sm leading-relaxed font-light relative z-10">Designed, developed, and crafted the aesthetic and structural framework of this platform, seamlessly blending modern web technology with a divine, immersive theme.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="tnc-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 p-4">
+        <div class="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-2xl border border-gold/40 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 bg-black/60" id="tnc-content">
+            <button onclick="closeTncModal()" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-gold/60 hover:text-white transition-colors focus:outline-none focus:ring-0" aria-label="Close">
+                <i class="fa-solid fa-xmark text-xl sm:text-2xl"></i>
+            </button>
+            <h2 class="heading-font text-2xl sm:text-3xl text-gold font-bold mb-4 border-b border-gold/20 pb-3 sm:pb-4">Terms & Conditions</h2>
+            
+            <div class="overflow-y-auto pr-2 sm:pr-4 text-orange-100/80 text-xs sm:text-sm space-y-4 sm:space-y-5 mb-4 sm:mb-6 custom-scrollbar">
+                <p class="leading-relaxed">Welcome to the Bangladesh Hindu Students Parishad, Chawkbazar Thana official website. By accessing and using this website, you agree to comply with the following terms.</p>
+                <h3 class="text-white font-semibold text-base sm:text-lg mt-3 sm:mt-4">1. Acceptance of Terms</h3>
+                <p class="leading-relaxed">By interacting with our platform, registering for events, or reading our blogs, you accept these terms in full. If you disagree, you may continue to use the site purely for informational reading purposes.</p>
+                <h3 class="text-white font-semibold text-base sm:text-lg mt-3 sm:mt-4">2. Privacy & Data Use</h3>
+                <p class="leading-relaxed">When you register for our spiritual gatherings via provided Google Forms, the information collected is used solely for event coordination and community updates. We strictly do not sell your personal data.</p>
+                <h3 class="text-white font-semibold text-base sm:text-lg mt-3 sm:mt-4">3. Community Guidelines</h3>
+                <p class="leading-relaxed">We promote peace, Sanatana Dharma values, and unity. Any abusive behavior, spamming, or disruption related to our digital platforms will not be tolerated.</p>
+                <p class="font-medium text-gold pt-2">Thank you for being part of our divine journey. Om Shanti.</p>
+            </div>
+            
+            <div id="tnc-actions" class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 border-t border-gold/20">
+                <button onclick="handleTncAction('decline')" class="flex-1 px-4 sm:px-6 py-3 sm:py-3.5 rounded-xl border border-gold/30 text-gold font-semibold hover:bg-white/10 hover:text-white transition-all shadow-sm focus:outline-none focus:ring-0 text-sm sm:text-base">Decline All</button>
+                <button onclick="handleTncAction('agree')" class="flex-1 px-4 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-saffron to-deepred text-white font-bold hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all focus:outline-none focus:ring-0 text-sm sm:text-base">Agree & Continue</button>
+            </div>
+
+            <div id="tnc-close-only" class="hidden pt-4 border-t border-gold/20 flex justify-end">
+                <button onclick="closeTncModal()" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl bg-white/10 border border-gold/30 text-gold font-semibold hover:bg-white/20 hover:text-white transition-all shadow-sm focus:outline-none focus:ring-0 text-sm sm:text-base">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube Coming Soon Modal -->
+    <div id="yt-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 p-4">
+        <div class="glass-panel p-8 md:p-10 rounded-3xl w-full max-w-md border border-gold/40 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] text-center transform scale-95 transition-transform duration-300 bg-black/60" id="yt-content">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-black/30 border border-gold/50 rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-[0_0_15px_rgba(229,193,88,0.3)]">
+                <i class="fa-brands fa-youtube text-3xl sm:text-4xl text-red-500 drop-shadow-[0_0_8px_rgba(255,0,0,0.5)]"></i>
+            </div>
+            <h2 class="heading-font text-xl sm:text-2xl text-white font-bold mb-3 sm:mb-4">Coming Soon!</h2>
+            <p class="text-orange-100/80 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed font-light">
+                Sorry, unfortunately we don't have our official YOUTUBE channel yet. We are working on the channel, and it will be available here soon!
+            </p>
+            <button onclick="closeYoutubeModal()" class="w-full px-6 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-saffron to-deepred text-white font-bold hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all focus:outline-none focus:ring-0 tracking-wider text-sm sm:text-base">
+                Understood
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- APPLICATION LOGIC (JAVASCRIPT)             -->
+    <!-- ========================================== -->
+    <script>
+        // ==========================================
+        // 1. STATIC DATABASE (EDIT CONTENT HERE)
+        // ==========================================
+        // HOW TO EDIT: Add new items to the top of these lists. Because this site is hosted on GitHub Pages,
+        // changes MUST be saved directly into this code block to be permanent for everyone.
+        
+        window.eventsData = [
+            { 
+                id: 'ev-1', 
+                title: 'Awakening of the New Generation in the Light of Vedic Scriptures<br><span class="text-gold text-lg md:text-xl mt-2 block font-medium">Vedic Seminar 2025</span>', 
+                date: '2025-02-15', 
+                description: 'The Vedic Seminar 2025 aims to inspire the younger generation by sharing timeless wisdom, cultural heritage, and values from ancient scriptures, while guiding them toward a stronger sense of self-discovery.', 
+                images: ['1.jpeg', '2.jpeg', '3.jpeg'], 
+                link: '', 
+                type: 'past' 
+            },
+            { 
+                id: 'ev-2', 
+                title: 'Upcoming Gita Chanting', 
+                date: '2026-05-15', 
+                img: '7.png', 
+                link: 'reg.html', 
+                type: 'upcoming' 
+            },
+            { 
+                id: 'ev-3', 
+                title: 'Youth Spiritual Camp', 
+                date: '2026-06-10', 
+                img: '8.png', 
+                link: 'reg.html', 
+                type: 'upcoming' 
+            }
+        ];
+
+        window.blogsData = [
+            { 
+                id: 'bl-1', 
+                title: 'The Essence of Karma Yoga', 
+                date: 'March 10, 2024', 
+                img: 'https://images.unsplash.com/photo-1507676184212-d0330a151528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
+                content: 'Understanding duty without attachment to the results is the core teaching of Lord Krishna in the Bhagavad Gita...' 
+            },
+            { 
+                id: 'bl-2', 
+                title: 'Significance of Fasting in Sanatana Dharma', 
+                date: 'February 22, 2024', 
+                img: 'https://images.unsplash.com/photo-1519818177570-3482708b77cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
+                content: 'Fasting (Vrata) is not just abstaining from food, but an exercise in self-discipline and drawing closer to the divine...' 
+            }
+        ];
+
+        // ==========================================
+        // 2. SECURITY & ANTI-STEAL MEASURES
+        // ==========================================
+        
+        // Block Copy, Cut, Paste
+        document.addEventListener('copy', (e) => { e.preventDefault(); return false; });
+        document.addEventListener('cut', (e) => { e.preventDefault(); return false; });
+        document.addEventListener('paste', (e) => { e.preventDefault(); return false; });
+
+        // Block Right Click (Context Menu)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Block specific keyboard shortcuts (F12, Inspect, Source Code)
+        document.onkeydown = function(e) {
+            // F12
+            if(e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl+Shift+I (Inspect)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+Shift+C (Inspect Element)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+Shift+J (Console)
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+U (View Source)
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Cmd+Option+I (Mac Inspect)
+            if(e.metaKey && e.altKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+        };
+
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // ==========================================
+        // 3. UI & COMPONENT FUNCTIONS
+        // ==========================================
+
+        // Modal Handlers
+        function setupModal(openFnName, closeFnName, modalId, contentId) {
+            window[openFnName] = function() {
+                const modal = document.getElementById(modalId);
+                const content = document.getElementById(contentId);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    content.classList.remove('scale-95');
+                    content.classList.add('scale-100');
+                }, 10);
+            };
+            window[closeFnName] = function() {
+                const modal = document.getElementById(modalId);
+                const content = document.getElementById(contentId);
+                modal.classList.add('opacity-0');
+                content.classList.remove('scale-100');
+                content.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 300);
+            };
+        }
+
+        setupModal('openContributorsModal', 'closeContributorsModal', 'contributors-modal', 'contributors-content');
+        setupModal('showYoutubeModal', 'closeYoutubeModal', 'yt-modal', 'yt-content');
+
+        // Terms & Conditions Logic
+        window.openTncModal = function(mode) {
+            const modal = document.getElementById('tnc-modal');
+            const content = document.getElementById('tnc-content');
+            const actions = document.getElementById('tnc-actions');
+            const closeOnly = document.getElementById('tnc-close-only');
+
+            if (mode === 'footer') {
+                actions.classList.add('hidden');
+                actions.classList.remove('flex');
+                closeOnly.classList.remove('hidden');
+                closeOnly.classList.add('flex');
+            } else {
+                actions.classList.remove('hidden');
+                actions.classList.add('flex');
+                closeOnly.classList.add('hidden');
+                closeOnly.classList.remove('flex');
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        };
+
+        window.closeTncModal = function() {
+            const modal = document.getElementById('tnc-modal');
+            const content = document.getElementById('tnc-content');
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        };
+
+        window.handleTncAction = function(action) {
+            localStorage.setItem('bhp_tnc_status', action);
+            window.closeTncModal();
+        };
+
+        // ==========================================
+        // 4. RENDERING & ANIMATION LOGIC
+        // ==========================================
+
+        window.renderPublicData = function() {
+            // Render Past Events
+            const pastEventsContainer = document.getElementById('past-events-carousel');
+            if(pastEventsContainer) {
+                const pastEvents = window.eventsData.filter(e => e.type === 'past');
+                pastEventsContainer.classList.toggle('justify-center', pastEvents.length <= 1);
+
+                pastEventsContainer.innerHTML = pastEvents.map(event => {
+                    let imageHTML = '';
+                    const cleanTitle = event.title.replace(/<[^>]*>?/gm, ''); 
+                    
+                    if (event.images && event.images.length > 0) {
+                        imageHTML = event.images.map((img, index) => 
+                            `<img src="${img}" alt="${cleanTitle}" draggable="false" onerror="this.src='temple.png'" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 slideshow-img pointer-events-none ${index === 0 ? 'opacity-100' : 'opacity-0'}">`
+                        ).join('');
+                    } else {
+                        imageHTML = `<img src="${event.img}" alt="${cleanTitle}" draggable="false" onerror="this.src='temple.png'" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">`;
+                    }
+
+                    return `
+                    <div class="carousel-item w-[85vw] sm:w-[24rem] md:w-[32rem] glass-panel rounded-3xl overflow-hidden group border-gold/30 hover:border-gold/60 transition-colors duration-500" onmouseenter="startSlideshow(this)" onmouseleave="stopSlideshow(this)">
+                        <div class="h-56 sm:h-72 overflow-hidden relative bg-black/60 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                            ${imageHTML}
+                        </div>
+                        <div class="p-6 sm:p-8 text-center relative bg-gradient-to-b from-maroon/40 to-black/60">
+                            <div class="absolute -top-4 sm:-top-5 left-1/2 transform -translate-x-1/2 bg-saffron text-white text-[10px] sm:text-xs font-bold tracking-widest px-4 py-1 sm:py-1.5 rounded-full border border-gold/50 shadow-lg z-20 whitespace-nowrap">
+                                ${new Date(event.date).toDateString()}
+                            </div>
+                            <h3 class="heading-font text-lg sm:text-xl md:text-2xl text-white mt-4 sm:mt-5 mb-3 sm:mb-4 leading-snug drop-shadow-md">${event.title}</h3>
+                            ${event.description ? `<p class="text-orange-100/70 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed font-light">${event.description}</p>` : ''}
+                            <div class="flex items-center justify-center text-xs sm:text-sm font-medium text-gold/80 bg-gold/10 py-1.5 sm:py-2 rounded-lg border border-gold/20">
+                                <i class="fa-solid fa-check-circle text-green-400 mr-1.5 sm:mr-2"></i> Successfully Completed
+                            </div>
+                        </div>
+                    </div>
+                `}).join('');
+            }
+
+            // Render Upcoming Events
+            const upcomingContainer = document.getElementById('upcoming-events-grid');
+            if(upcomingContainer) {
+                const upcomingEvents = window.eventsData.filter(e => e.type === 'upcoming');
+                upcomingContainer.innerHTML = upcomingEvents.map(event => `
+                    <div class="glass-panel rounded-3xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition duration-500 border border-gold/20 hover:border-gold/50 hover:shadow-[0_15px_50px_rgba(255,127,17,0.3)] group relative">
+                        <!-- Decorative glow -->
+                        <div class="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-saffron/20 rounded-full blur-[40px] sm:blur-[50px] group-hover:bg-saffron/40 transition-all duration-700 z-0 pointer-events-none"></div>
+
+                        <div class="relative overflow-hidden h-48 sm:h-56 z-10 border-b border-gold/20">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#1a0800] via-maroon/30 to-transparent opacity-90 group-hover:opacity-60 transition duration-500 z-10"></div>
+                            <img src="${event.img}" draggable="false" onerror="this.src='temple.png'" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <div class="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 z-20">
+                                <span class="bg-gradient-to-r from-deepred to-maroon text-gold text-[8px] sm:text-[10px] font-bold tracking-widest px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gold/40 shadow-lg uppercase flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
+                                    <i class="fa-solid fa-star text-[8px] sm:text-[10px] animate-pulse"></i> Upcoming Event
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-5 sm:p-6 md:p-8 flex-grow flex flex-col relative bg-gradient-to-b from-[#1a0800] to-black/90 z-10">
+                            <h3 class="heading-font text-xl sm:text-2xl text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors leading-snug">${event.title}</h3>
+                            <p class="text-orange-100/70 text-xs sm:text-sm mb-4 sm:mb-6 flex items-center bg-white/5 w-max px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-white/10 shadow-inner">
+                                <i class="fa-regular fa-calendar-days mr-2 sm:mr-3 text-saffron text-base sm:text-lg"></i> ${new Date(event.date).toDateString()}
+                            </p>
+                            
+                            <div class="mt-auto pt-4 sm:pt-6 border-t border-gold/20 flex flex-col items-center">
+                                <p class="text-sand text-xs sm:text-sm font-medium italic mb-3 sm:mb-4 text-center drop-shadow-md">
+                                    Want to join with us in this event?<br><span class="text-gold">Click Register Now!</span>
+                                </p>
+                                <a href="${event.link}" target="_blank" draggable="false" class="w-full block text-center bg-gradient-to-r from-saffron to-deepred text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all uppercase tracking-widest text-xs sm:text-sm focus:outline-none focus:ring-0 relative overflow-hidden group/btn border border-gold/30">
+                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
+                                    <span class="relative flex items-center justify-center gap-2 sm:gap-3">Register Now <i class="fa-solid fa-arrow-right-to-bracket text-base sm:text-lg"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        };
+
+        // Slideshow Logic
+        window.startSlideshow = function(element) {
+            const images = element.querySelectorAll('.slideshow-img');
+            if (images.length <= 1) return; 
+            let currentIndex = 0;
+            if (element._slideTimer) clearInterval(element._slideTimer);
+            element._slideTimer = setInterval(() => {
+                images[currentIndex].classList.replace('opacity-100', 'opacity-0');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.replace('opacity-0', 'opacity-100');
+            }, 2000); 
+        };
+
+        window.stopSlideshow = function(element) {
+            if (element._slideTimer) {
+                clearInterval(element._slideTimer);
+                const images = element.querySelectorAll('.slideshow-img');
+                images.forEach((img, i) => {
+                    i === 0 ? img.classList.replace('opacity-0', 'opacity-100') : img.classList.replace('opacity-100', 'opacity-0');
+                });
+            }
+        };
+
+        // ==========================================
+        // 5. INITIALIZATION & LISTENERS
+        // ==========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle Loading Screen (5 seconds)
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                    // Re-enable scrolling
+                    document.body.classList.remove('overflow-hidden');
+                    
+                    // Clean up DOM after fade out
+                    setTimeout(() => loader.remove(), 1000);
+                }
+                
+                // Trigger T&C modal AFTER loader finishes (if not accepted)
+                if (!localStorage.getItem('bhp_tnc_status')) {
+                    setTimeout(() => window.openTncModal('load'), 1000);
+                }
+            }, 5000);
+
+            window.renderPublicData();
+        });
+
+        // UI Listeners (Carousel, Scroll, Mobile Menu)
+        const carousel = document.getElementById('past-events-carousel');
+        document.getElementById('prevBtn')?.addEventListener('click', () => carousel.scrollBy({ left: -400, behavior: 'smooth' }));
+        document.getElementById('nextBtn')?.addEventListener('click', () => carousel.scrollBy({ left: 400, behavior: 'smooth' }));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(!nav) return;
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'shadow-2xl', 'backdrop-blur-xl');
+                nav.classList.remove('glass-panel', 'border-gold/20');
+                nav.classList.add('border-b', 'border-gold/40');
+            } else {
+                nav.classList.add('glass-panel', 'border-gold/20');
+                nav.classList.remove('bg-black/90', 'shadow-2xl', 'backdrop-blur-xl', 'border-gold/40');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
