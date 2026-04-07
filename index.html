@@ -189,6 +189,7 @@
                         <div class="ml-10 flex items-baseline space-x-6 xl:space-x-8">
                             <a href="#home" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
                             <a href="#about" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">About Us</a>
+                            <a href="#committee" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Committee</a>
                             <a href="#events" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Events</a>
                             <a href="#notices" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Notices</a>
                             <a href="#blog" class="text-sand hover:text-gold hover:drop-shadow-[0_0_8px_rgba(229,193,88,0.8)] px-3 py-2 rounded-md text-sm font-medium transition-all">Blog</a>
@@ -209,6 +210,7 @@
                 <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col text-center">
                     <a href="#home" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Home</a>
                     <a href="#about" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">About Us</a>
+                    <a href="#committee" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Committee</a>
                     <a href="#events" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Events</a>
                     <a href="#notices" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Notices</a>
                     <a href="#blog" class="mobile-link text-sand hover:text-gold hover:bg-white/5 px-3 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium border-b border-white/5 transition-colors">Blog</a>
@@ -333,6 +335,27 @@
             </div>
         </section>
 
+        <!-- === MEMBERS RANK & COMMITTEE SECTION === -->
+        <section id="committee" class="py-16 md:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 sm:mb-16 fade-in">
+                    <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Our Leaders</span>
+                    <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Executive <span class="text-gold">Committee</span></h2>
+                    <p class="text-orange-100/80 max-w-2xl mx-auto text-sm sm:text-base px-2">The dedicated pillars of our Parishad working tirelessly to uphold Dharma and serve the community.</p>
+                    <div class="flex justify-center items-center gap-2 mt-4 sm:mt-6">
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                        <i class="fa-solid fa-users text-gold text-sm sm:text-base"></i>
+                        <div class="w-8 sm:w-12 h-[1px] bg-gold/50"></div>
+                    </div>
+                </div>
+
+                <!-- Grid for Members Showcase -->
+                <div id="members-rank-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 fade-in">
+                    <!-- Dynamically populated by JS -->
+                </div>
+            </div>
+        </section>
+
         <!-- === PAST EVENTS SECTION === -->
         <section class="py-16 md:py-24 relative z-10">
             <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
@@ -418,7 +441,7 @@
 
 এই প্ল্যাটফর্মে শিক্ষার্থীরা একে অপরের সাথে যুক্ত হবে, জ্ঞান ও সংস্কৃতি ভাগাভাগি করবে এবং ঐক্যের বন্ধনকে আরও দৃঢ় করবে।
 
-✨ আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।
+ আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।
 
 — বাংলাদেশ হিন্দু স্টুডেন্ট পরিষদ</p>
                     </div>
@@ -447,7 +470,7 @@
                         <div class="rounded-xl overflow-hidden border border-gold/20 flex-grow relative bg-black/60 flex items-center justify-center relative z-10 group-hover:border-gold/50 transition-colors">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300 z-10"></div>
                             <!-- Notice Image: Change the src here -->
-                            <img src="notice.jpeg" alt="Notice Flyer" draggable="false" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="notice.jpeg" alt="Notice Flyer" draggable="false" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'">
                             <!-- Zoom Icon Overlay -->
                             <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                                 <div class="bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center border border-gold/50 backdrop-blur-sm">
@@ -520,7 +543,7 @@
                     <div class="glass-panel rounded-3xl overflow-hidden flex flex-col md:flex-row transform hover:-translate-y-2 transition duration-500 border-gold/20 hover:border-gold/50 hover:shadow-[0_10px_40px_rgba(255,127,17,0.2)] group">
                         <div class="w-full md:w-5/12 relative overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[auto]">
                             <div class="absolute inset-0 bg-maroon/20 group-hover:bg-transparent transition duration-500 z-10"></div>
-                            <img src="blog.png" alt="Vedic Library" draggable="false" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <img src="blog.png" alt="Vedic Library" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
                         </div>
                         <div class="p-6 sm:p-8 md:p-10 w-full md:w-7/12 flex flex-col justify-center bg-gradient-to-br from-black/40 to-maroon/20 text-center md:text-left">
                             <span class="bg-deepred/80 text-gold text-[10px] sm:text-xs font-bold tracking-wider px-3 py-1 rounded-full w-max mb-4 border border-gold/30 shadow-lg mx-auto md:mx-0">Wisdom Library</span>
@@ -1141,6 +1164,32 @@
         ];
 
         // ==========================================
+        // 1.5 MEMBERS RANK DATABASE (EDIT RANKS HERE)
+        // ==========================================
+        /* * HOW TO SET STARS AND MEMBER DATA:
+         * 1. To change a member's visual star rating, update the 'stars' value (e.g., 5, 4.5, 4, 3.5).
+         * 2. The 'order' value decides who appears first (1 is first, 2 is second, etc.).
+         * 3. Update 'bloodGroup' and 'number' inside the quotes. Example: number: "017XX-XXXXXX"
+         */
+        window.membersData = [
+            { order: 1, stars: 1, name: "Saikat Day", position: "Convener", bloodGroup: "Pending", number: "Pending...", img: "saikat.jpeg", fallbackColor: "8B0000" },
+            { order: 2, stars: 5, name: "Rudhra Chakraborty", position: "Joint Convener", bloodGroup: "Pending", number: "Pending...", img: "rudhra.jpeg", fallbackColor: "8B0000" },
+            { order: 3, stars: 4.5, name: "Nishan Kumar Nath", position: "Joint Member Secretary", bloodGroup: "Pending", number: "Pending...", img: "nishan.jpeg", fallbackColor: "8B0000" },
+            { order: 4, stars: 4.5, name: "Aushman Chowdhury", position: "Joint Member Secretary", bloodGroup: "Pending", number: "Pending...", img: "aushman.jpeg", fallbackColor: "8B0000" },
+            { order: 5, stars: 4.5, name: "Hrithik Chowdhury", position: "Finance Secretary", bloodGroup: "Pending", number: "Pending...", img: "hrithik.jpeg", fallbackColor: "8B0000" },
+            { order: 6, stars: 4, name: "Diganta Aich", position: "Joint Finance Secretary", bloodGroup: "Pending", number: "Pending...", img: "diganta.jpeg", fallbackColor: "8B0000" },
+            { order: 7, stars: 4, name: "Avi Dey", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "avi.jpeg", fallbackColor: "8B0000" },
+            { order: 8, stars: 4, name: "Papiya Paul", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "papiya.jpeg", fallbackColor: "8B0000" },
+            { order: 9, stars: 4, name: "Oporna Das", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "oporna.jpeg", fallbackColor: "8B0000" },
+            { order: 10, stars: 4, name: "Arpita Bhattacharjee", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "arpita.jpeg", fallbackColor: "8B0000" },
+            { order: 11, stars: 4, name: "Divyaraj Dhar", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "divyaraj.jpeg", fallbackColor: "8B0000" },
+            { order: 12, stars: 4, name: "Raj Chakroborthy", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "raj.jpeg", fallbackColor: "8B0000" },
+            { order: 13, stars: 4, name: "Durjoy Dev Nath", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "durjoy.jpeg", fallbackColor: "8B0000" },
+            { order: 14, stars: 4, name: "Sanjoy Das", position: "Working member", bloodGroup: "Pending", number: "Pending...", img: "sanjoy.jpeg", fallbackColor: "8B0000" },
+            { order: 15, stars: 5, name: "Sarnab Bhattacharjee", position: "Website Creator", bloodGroup: "Pending", number: "Pending...", img: "sarnab.gif", fallbackColor: "8B0000" }
+        ];
+
+        // ==========================================
         // 2. SECURITY & ANTI-STEAL MEASURES
         // ==========================================
         
@@ -1316,6 +1365,53 @@
         // ==========================================
 
         window.renderPublicData = function() {
+            // Render Members Showcase (Sorted by Order)
+            const membersContainer = document.getElementById('members-rank-grid');
+            if (membersContainer) {
+                // Sort the array by order ascending (1, 2, 3...)
+                const sortedMembers = window.membersData.sort((a, b) => a.order - b.order);
+                
+                membersContainer.innerHTML = sortedMembers.map(member => `
+                    <div class="glass-panel p-6 rounded-3xl relative group hover:-translate-y-2 transition-transform duration-500 border border-gold/20 hover:border-gold/60 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col items-center">
+                        
+                        <!-- Background Glow Decoration -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-saffron/10 rounded-full blur-[40px] group-hover:bg-saffron/30 transition-all duration-700 pointer-events-none"></div>
+                        
+                        <!-- Profile Image -->
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)] bg-black/50">
+                            <img src="${member.img}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=${member.fallbackColor}&color=E5C158'" alt="${member.name}" draggable="false" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        
+                        <!-- Name & Position -->
+                        <h3 class="text-white font-bold text-lg sm:text-xl text-center group-hover:text-gold transition-colors relative z-10 mb-1 leading-tight">${member.name}</h3>
+                        <p class="text-saffron text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] mb-2 text-center relative z-10 flex items-center justify-center">${member.position}</p>
+                        
+                        <!-- Star Rating Animation -->
+                        <div class="flex justify-center items-center gap-1 mb-4 relative z-10 text-sm drop-shadow-[0_0_8px_rgba(229,193,88,0.6)] group-hover:scale-110 transition-transform duration-300">
+                            ${Array.from({length: 5}, (_, i) => {
+                                if (member.stars >= i + 1) return '<i class="fa-solid fa-star text-gold"></i>';
+                                if (member.stars >= i + 0.5) return '<i class="fa-solid fa-star-half-stroke text-gold"></i>';
+                                return '<i class="fa-regular fa-star text-gold/30"></i>';
+                            }).join('')}
+                        </div>
+                        
+                        <div class="w-full h-[1px] bg-gold/20 mb-4 group-hover:bg-gold/50 transition-colors relative z-10"></div>
+                        
+                        <!-- Blood Group & Number -->
+                        <div class="w-full space-y-3 relative z-10 mt-auto">
+                            <div class="flex justify-between items-center bg-black/40 px-3 py-2.5 rounded-xl border border-gold/10 group-hover:border-gold/30 transition-colors shadow-inner">
+                                <span class="text-orange-100/60 text-xs sm:text-sm flex items-center"><i class="fa-solid fa-droplet text-red-500 mr-2 animate-pulse"></i>Blood</span>
+                                <span class="text-white font-bold text-xs sm:text-sm tracking-wider drop-shadow-md">${member.bloodGroup}</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-black/40 px-3 py-2.5 rounded-xl border border-gold/10 group-hover:border-gold/30 transition-colors shadow-inner">
+                                <span class="text-orange-100/60 text-xs sm:text-sm flex items-center"><i class="fa-solid fa-phone text-green-500 mr-2"></i>Phone</span>
+                                <span class="text-gold font-medium text-xs sm:text-sm truncate ml-2" title="${member.number}">${member.number}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
             // Render Past Events
             const pastEventsContainer = document.getElementById('past-events-carousel');
             if(pastEventsContainer) {
@@ -1328,10 +1424,10 @@
                     
                     if (event.images && event.images.length > 0) {
                         imageHTML = event.images.map((img, index) => 
-                            `<img src="${img}" alt="${cleanTitle}" draggable="false" onerror="this.src='temple.png'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 slideshow-img pointer-events-none group-hover:scale-110 ${index === 0 ? 'opacity-100' : 'opacity-0'}">`
+                            `<img src="${img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 slideshow-img pointer-events-none group-hover:scale-110 ${index === 0 ? 'opacity-100' : 'opacity-0'}">`
                         ).join('');
                     } else {
-                        imageHTML = `<img src="${event.img}" alt="${cleanTitle}" draggable="false" onerror="this.src='temple.png'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 pointer-events-none">`;
+                        imageHTML = `<img src="${event.img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 pointer-events-none">`;
                     }
 
                     return `
@@ -1383,7 +1479,7 @@
 
                         <div class="relative overflow-hidden h-48 sm:h-56 z-10 border-b border-gold/20">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#1a0800] via-maroon/30 to-transparent opacity-90 group-hover:opacity-60 transition duration-500 z-10"></div>
-                            <img src="${event.img}" draggable="false" onerror="this.src='temple.png'" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                            <img src="${event.img}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
                             <div class="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 z-20">
                                 <span class="bg-gradient-to-r from-deepred to-maroon text-gold text-[8px] sm:text-[10px] font-bold tracking-widest px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gold/40 shadow-lg uppercase flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
                                     <i class="fa-solid fa-star text-[8px] sm:text-[10px] animate-pulse"></i> Upcoming Event
