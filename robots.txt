@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+This simply acts as an open door, politely telling Google's automated bots, "Yes, you are allowed to read and list my website."
+
+*Note: It usually takes Google anywhere from 24 hours to a week to officially list your site after you click "Request Indexing". Searching for `site:yourusername.github.io/your-repo-name` in Google will tell you exactly when they have found it!*
