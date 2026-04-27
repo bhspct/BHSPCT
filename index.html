@@ -26,13 +26,13 @@
     <meta property="og:description" content="Upholding Dharma, uniting the community, and celebrating our rich cultural and spiritual heritage.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bhspct.me/">
-    <meta property="og:image" content="https://bhspct.me/logo123.png">
+    <meta property="og:image" content="https://bhspct.me/bhspct-official-logo-v2.jpeg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bhspct.me/logo123.png">
-    <meta name="thumbnail" content="https://bhspct.me/logo123.png" />
+    <meta name="twitter:image" content="https://bhspct.me/bhspct-official-logo-v2.jpeg">
+    <meta name="thumbnail" content="https://bhspct.me/bhspct-official-logo-v2.jpeg" />
 
-    <link rel="icon" type="image/jpeg" href="logo123.png">
-    <link rel="apple-touch-icon" href="logo123.png">
+    <link rel="icon" type="image/jpeg" href="bhspct-official-logo-v2.jpeg">
+    <link rel="apple-touch-icon" href="bhspct-official-logo-v2.jpeg">
 
     <!-- Schema.org Markup for Google Search -->
     <script type="application/ld+json">
@@ -45,9 +45,9 @@
           "url": "https://bhspct.me/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://bhspct.me/logo123.png"
+            "url": "https://bhspct.me/bhspct-official-logo-v2.jpeg"
           },
-          "image": "https://bhspct.me/logo123.png"
+          "image": "https://bhspct.me/bhspct-official-logo-v2.jpeg"
         },
         {
           "@type": "WebSite",
@@ -193,6 +193,9 @@
     </style>
 </head>
 <body class="antialiased relative overflow-hidden" oncontextmenu="return false;">
+
+    <!-- Audio Element for Shankh Sound -->
+    <audio id="sunk-audio" src="sunk.mp3" preload="auto"></audio>
 
     <div id="loader" class="fixed inset-0 z-[99999] bg-[#1a0800] flex flex-col items-center justify-center transition-opacity duration-1000">
         <div class="absolute inset-0 bg-divine opacity-40"></div>
@@ -1051,6 +1054,38 @@
     </div>
 
     <script>
+        // NEW: Audio function to play the Sunk Sound
+        window.playSunkSound = function() {
+            const audio = document.getElementById('sunk-audio');
+            if (audio) {
+                audio.volume = 0.5; // Adjust volume as needed (0.0 to 1.0)
+                
+                // Store the promise returned by play()
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(err => {
+                        console.warn("Audio playback failed:", err.name, err.message);
+                        
+                        // Modern browsers block autoplay without user interaction.
+                        // Only retry on user interaction if it was specifically blocked by the browser.
+                        if (err.name === 'NotAllowedError') {
+                            const playOnInteract = () => {
+                                const interactPromise = audio.play();
+                                if (interactPromise !== undefined) {
+                                    interactPromise.catch(e => console.warn("Audio playback failed on interact:", e.message));
+                                }
+                                // Remove listeners after attempting to play once
+                                ['click', 'touchstart', 'keydown'].forEach(evt => document.removeEventListener(evt, playOnInteract));
+                            };
+                            // Add event listeners to catch the first user interaction
+                            ['click', 'touchstart', 'keydown'].forEach(evt => document.addEventListener(evt, playOnInteract, { once: true }));
+                        }
+                    });
+                }
+            }
+        };
+
         window.eventsData = [
             {
                 id: 'ev-new-2', 
@@ -1520,8 +1555,14 @@
                     loader.style.opacity = '0';
                     loader.style.pointerEvents = 'none';
                     document.body.classList.remove('overflow-hidden');
-                    setTimeout(() => loader.remove(), 1000);
+                    setTimeout(() => {
+                        loader.remove();
+                        window.playSunkSound(); // Play sound precisely when loader disappears
+                    }, 1000);
+                } else {
+                     window.playSunkSound();
                 }
+                
                 if (!localStorage.getItem('bhp_tnc_status')) {
                     setTimeout(() => window.openTncModal('load'), 1000);
                 }
