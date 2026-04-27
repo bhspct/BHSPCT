@@ -186,6 +186,7 @@
         .text-gradient-gold {
             background: linear-gradient(to right, #E5C158, #FFF2C8, #E5C158);
             -webkit-background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
@@ -435,7 +436,7 @@
 
 এই প্ল্যাটফর্মে শিক্ষার্থীরা একে অপরের সাথে যুক্ত হবে, জ্ঞান ও সংস্কৃতি ভাগাভাগি করবে এবং ঐক্যের বন্ধনকে আরও দৃঢ় করবে।
 
- আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।
+ আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।
 
 — বাংলাদেশ হিন্দু স্টুডেন্ট পরিষদ</p>
                     </div>
@@ -527,8 +528,16 @@
                     </div>
                 </div>
 
-                <div id="members-rank-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 fade-in">
-                    </div>
+                <div id="members-rank-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 fade-in transition-all duration-500">
+                </div>
+                
+                <!-- See More Button -->
+                <div class="text-center mt-10 sm:mt-12 fade-in flex justify-center">
+                    <button id="toggle-members-btn" onclick="toggleMembers()" class="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border border-gold/40 bg-black/50 text-gold font-bold hover:bg-gold/10 hover:shadow-[0_0_20px_rgba(229,193,88,0.4)] transition-all flex items-center justify-center gap-2 group focus:outline-none">
+                        <span id="toggle-members-text">See More Members</span>
+                        <i id="toggle-members-icon" class="fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -1091,11 +1100,6 @@
         // ==========================================
         // NEW: LATEST NEWS DATABASE
         // ==========================================
-        /* * HOW TO ADD NEWS IN THE FUTURE:
-         * 1. Copy an existing block below from `{` to `},`
-         * 2. Paste it at the top of the list so it appears first.
-         * 3. Update the title, date, summary, image, and link!
-         */
         window.newsData = [
             {
                 id: 'news-1',
@@ -1342,12 +1346,17 @@
             `).join('');
         };
 
+        // NEW: Toggle logic for members list
+        window.showAllMembers = false;
+
         window.renderPublicData = function() {
             const membersContainer = document.getElementById('members-rank-grid');
             if (membersContainer) {
                 const sortedMembers = window.membersData.sort((a, b) => a.order - b.order);
+                const displayCount = window.showAllMembers ? sortedMembers.length : 8; // Shows top 8 initially
+                const visibleMembers = sortedMembers.slice(0, displayCount);
                 
-                membersContainer.innerHTML = sortedMembers.map(member => `
+                membersContainer.innerHTML = visibleMembers.map(member => `
                     <div class="glass-panel p-6 rounded-3xl relative group hover:-translate-y-2 transition-transform duration-500 border border-gold/20 hover:border-gold/60 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col items-center">
                         <div class="absolute -top-10 -right-10 w-32 h-32 bg-saffron/10 rounded-full blur-[40px] group-hover:bg-saffron/30 transition-all duration-700 pointer-events-none"></div>
                         
@@ -1382,87 +1391,105 @@
                         </div>
                     </div>
                 `).join('');
-            }
 
-            const pastEventsContainer = document.getElementById('past-events-carousel');
-            if(pastEventsContainer) {
-                const pastEvents = window.eventsData.filter(e => e.type === 'past');
-                pastEventsContainer.classList.toggle('justify-center', pastEvents.length <= 1);
-
-                pastEventsContainer.innerHTML = pastEvents.map(event => {
-                    let imageHTML = '';
-                    const cleanTitle = event.title.replace(/<[^>]*>?/gm, ''); 
-                    
-                    if (event.images && event.images.length > 0) {
-                        imageHTML = event.images.map((img, index) => 
-                            `<img src="${img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 slideshow-img pointer-events-none group-hover:scale-110 ${index === 0 ? 'opacity-100' : 'opacity-0'}">`
-                        ).join('');
+                // Update button state dynamically
+                const toggleBtnText = document.getElementById('toggle-members-text');
+                const toggleBtnIcon = document.getElementById('toggle-members-icon');
+                if (toggleBtnText && toggleBtnIcon) {
+                    if (window.showAllMembers) {
+                        toggleBtnText.textContent = "See Less";
+                        toggleBtnIcon.className = "fa-solid fa-chevron-up group-hover:-translate-y-1 transition-transform";
                     } else {
-                        imageHTML = `<img src="${event.img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 pointer-events-none">`;
+                        toggleBtnText.textContent = "See More Members";
+                        toggleBtnIcon.className = "fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform";
                     }
-
-                    return `
-                    <div class="carousel-item relative w-[85vw] sm:w-[22rem] md:w-[26rem] h-[400px] sm:h-[460px] rounded-3xl overflow-hidden group cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_0_50px_rgba(229,193,88,0.3)] transition-all duration-500 border border-gold/20" onmouseenter="startSlideshow(this)" onmouseleave="stopSlideshow(this)">
-                        <div class="absolute inset-0 bg-black">${imageHTML}</div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 z-10"></div>
-                        <div class="absolute inset-0 bg-maroon/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                        <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-20">
-                            <div class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-gold text-[10px] sm:text-xs font-bold tracking-widest px-3 py-1.5 rounded-full border border-gold/30 shadow-xl transform group-hover:-translate-y-1 transition-transform duration-300">
-                                <i class="fa-regular fa-calendar-days mr-1"></i> ${new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
-                            </div>
-                            <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                <div class="w-10 h-1 bg-gold mb-4 group-hover:w-16 group-hover:bg-saffron transition-all duration-500 rounded-full shadow-[0_0_10px_rgba(229,193,88,0.8)]"></div>
-                                <h3 class="heading-font text-xl sm:text-2xl md:text-[1.6rem] text-white mb-3 leading-snug drop-shadow-xl group-hover:text-gold transition-colors duration-300">${event.title}</h3>
-                                <div class="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
-                                    ${event.description ? `<p class="text-orange-100/80 text-xs sm:text-sm leading-relaxed font-light mb-4 text-justify pr-2">${event.description}</p>` : ''}
-                                </div>
-                                <div class="flex items-center text-[10px] sm:text-xs font-bold text-green-400 mt-2 bg-black/40 w-max px-3 py-1.5 rounded-lg border border-green-500/30 backdrop-blur-sm uppercase tracking-wider">
-                                    <i class="fa-solid fa-circle-check mr-2"></i> Successfully Completed
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold/60 rounded-3xl transition-colors duration-500 z-30 pointer-events-none"></div>
-                    </div>
-                `}).join('');
-            }
-
-            const upcomingContainer = document.getElementById('upcoming-events-grid');
-            if(upcomingContainer) {
-                const upcomingEvents = window.eventsData.filter(e => e.type === 'upcoming');
-                upcomingContainer.innerHTML = upcomingEvents.map(event => `
-                    <div class="glass-panel rounded-3xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition duration-500 border border-gold/20 hover:border-gold/50 hover:shadow-[0_15px_50px_rgba(255,127,17,0.3)] group relative h-full">
-                        <div class="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-saffron/20 rounded-full blur-[40px] sm:blur-[50px] group-hover:bg-saffron/40 transition-all duration-700 z-0 pointer-events-none"></div>
-
-                        <div class="relative overflow-hidden h-48 sm:h-56 z-10 border-b border-gold/20">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#1a0800] via-maroon/30 to-transparent opacity-90 group-hover:opacity-60 transition duration-500 z-10"></div>
-                            <img src="${event.img}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
-                            <div class="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 z-20">
-                                <span class="bg-gradient-to-r from-deepred to-maroon text-gold text-[8px] sm:text-[10px] font-bold tracking-widest px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gold/40 shadow-lg uppercase flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
-                                    <i class="fa-solid fa-star text-[8px] sm:text-[10px] animate-pulse"></i> Upcoming Event
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <div class="p-5 sm:p-6 md:p-8 flex-grow flex flex-col relative bg-gradient-to-b from-[#1a0800] to-black/90 z-10">
-                            <h3 class="heading-font text-xl sm:text-2xl text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors leading-snug">${event.title}</h3>
-                            <p class="text-orange-100/70 text-xs sm:text-sm mb-4 sm:mb-6 flex items-center bg-white/5 w-max px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-white/10 shadow-inner">
-                                <i class="fa-regular fa-calendar-days mr-2 sm:mr-3 text-saffron text-base sm:text-lg"></i> ${new Date(event.date).toDateString()}
-                            </p>
-                            
-                            <div class="mt-auto pt-4 sm:pt-6 border-t border-gold/20 flex flex-col items-center">
-                                <p class="text-sand text-xs sm:text-sm font-medium italic mb-3 sm:mb-4 text-center drop-shadow-md">
-                                    Want to join with us in this event?<br><span class="text-gold">Click Register Now!</span>
-                                </p>
-                                <a href="${event.link}" target="_blank" draggable="false" class="w-full block text-center bg-gradient-to-r from-saffron to-deepred text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all uppercase tracking-widest text-xs sm:text-sm focus:outline-none focus:ring-0 relative overflow-hidden group/btn border border-gold/30">
-                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
-                                    <span class="relative flex items-center justify-center gap-2 sm:gap-3">Register Now <i class="fa-solid fa-arrow-right-to-bracket text-base sm:text-lg"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
+                }
             }
         };
+
+        window.toggleMembers = function() {
+            window.showAllMembers = !window.showAllMembers;
+            window.renderPublicData();
+        };
+
+        const pastEventsContainer = document.getElementById('past-events-carousel');
+        if(pastEventsContainer) {
+            const pastEvents = window.eventsData.filter(e => e.type === 'past');
+            pastEventsContainer.classList.toggle('justify-center', pastEvents.length <= 1);
+
+            pastEventsContainer.innerHTML = pastEvents.map(event => {
+                let imageHTML = '';
+                const cleanTitle = event.title.replace(/<[^>]*>?/gm, ''); 
+                
+                if (event.images && event.images.length > 0) {
+                    imageHTML = event.images.map((img, index) => 
+                        `<img src="${img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 slideshow-img pointer-events-none group-hover:scale-110 ${index === 0 ? 'opacity-100' : 'opacity-0'}">`
+                    ).join('');
+                } else {
+                    imageHTML = `<img src="${event.img}" alt="${cleanTitle}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 pointer-events-none">`;
+                }
+
+                return `
+                <div class="carousel-item relative w-[85vw] sm:w-[22rem] md:w-[26rem] h-[400px] sm:h-[460px] rounded-3xl overflow-hidden group cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_0_50px_rgba(229,193,88,0.3)] transition-all duration-500 border border-gold/20" onmouseenter="startSlideshow(this)" onmouseleave="stopSlideshow(this)">
+                    <div class="absolute inset-0 bg-black">${imageHTML}</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 z-10"></div>
+                    <div class="absolute inset-0 bg-maroon/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-20">
+                        <div class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-gold text-[10px] sm:text-xs font-bold tracking-widest px-3 py-1.5 rounded-full border border-gold/30 shadow-xl transform group-hover:-translate-y-1 transition-transform duration-300">
+                            <i class="fa-regular fa-calendar-days mr-1"></i> ${new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </div>
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <div class="w-10 h-1 bg-gold mb-4 group-hover:w-16 group-hover:bg-saffron transition-all duration-500 rounded-full shadow-[0_0_10px_rgba(229,193,88,0.8)]"></div>
+                            <h3 class="heading-font text-xl sm:text-2xl md:text-[1.6rem] text-white mb-3 leading-snug drop-shadow-xl group-hover:text-gold transition-colors duration-300">${event.title}</h3>
+                            <div class="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
+                                ${event.description ? `<p class="text-orange-100/80 text-xs sm:text-sm leading-relaxed font-light mb-4 text-justify pr-2">${event.description}</p>` : ''}
+                            </div>
+                            <div class="flex items-center text-[10px] sm:text-xs font-bold text-green-400 mt-2 bg-black/40 w-max px-3 py-1.5 rounded-lg border border-green-500/30 backdrop-blur-sm uppercase tracking-wider">
+                                <i class="fa-solid fa-circle-check mr-2"></i> Successfully Completed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold/60 rounded-3xl transition-colors duration-500 z-30 pointer-events-none"></div>
+                </div>
+            `}).join('');
+        }
+
+        const upcomingContainer = document.getElementById('upcoming-events-grid');
+        if(upcomingContainer) {
+            const upcomingEvents = window.eventsData.filter(e => e.type === 'upcoming');
+            upcomingContainer.innerHTML = upcomingEvents.map(event => `
+                <div class="glass-panel rounded-3xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition duration-500 border border-gold/20 hover:border-gold/50 hover:shadow-[0_15px_50px_rgba(255,127,17,0.3)] group relative h-full">
+                    <div class="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-saffron/20 rounded-full blur-[40px] sm:blur-[50px] group-hover:bg-saffron/40 transition-all duration-700 z-0 pointer-events-none"></div>
+
+                    <div class="relative overflow-hidden h-48 sm:h-56 z-10 border-b border-gold/20">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1a0800] via-maroon/30 to-transparent opacity-90 group-hover:opacity-60 transition duration-500 z-10"></div>
+                        <img src="${event.img}" draggable="false" onerror="this.src='https://images.unsplash.com/photo-1604882740203-0bb3530c1154?q=80&w=600&auto=format&fit=crop'" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 pointer-events-none">
+                        <div class="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 z-20">
+                            <span class="bg-gradient-to-r from-deepred to-maroon text-gold text-[8px] sm:text-[10px] font-bold tracking-widest px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gold/40 shadow-lg uppercase flex items-center gap-1.5 sm:gap-2 backdrop-blur-md">
+                                <i class="fa-solid fa-star text-[8px] sm:text-[10px] animate-pulse"></i> Upcoming Event
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 sm:p-6 md:p-8 flex-grow flex flex-col relative bg-gradient-to-b from-[#1a0800] to-black/90 z-10">
+                        <h3 class="heading-font text-xl sm:text-2xl text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors leading-snug">${event.title}</h3>
+                        <p class="text-orange-100/70 text-xs sm:text-sm mb-4 sm:mb-6 flex items-center bg-white/5 w-max px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-white/10 shadow-inner">
+                            <i class="fa-regular fa-calendar-days mr-2 sm:mr-3 text-saffron text-base sm:text-lg"></i> ${new Date(event.date).toDateString()}
+                        </p>
+                        
+                        <div class="mt-auto pt-4 sm:pt-6 border-t border-gold/20 flex flex-col items-center">
+                            <p class="text-sand text-xs sm:text-sm font-medium italic mb-3 sm:mb-4 text-center drop-shadow-md">
+                                Want to join with us in this event?<br><span class="text-gold">Click Register Now!</span>
+                            </p>
+                            <a href="${event.link}" target="_blank" draggable="false" class="w-full block text-center bg-gradient-to-r from-saffron to-deepred text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_20px_rgba(255,127,17,0.5)] transition-all uppercase tracking-widest text-xs sm:text-sm focus:outline-none focus:ring-0 relative overflow-hidden group/btn border border-gold/30">
+                                <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
+                                <span class="relative flex items-center justify-center gap-2 sm:gap-3">Register Now <i class="fa-solid fa-arrow-right-to-bracket text-base sm:text-lg"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
         window.startSlideshow = function(element) {
             const images = element.querySelectorAll('.slideshow-img');
