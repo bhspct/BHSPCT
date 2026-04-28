@@ -596,6 +596,7 @@
         </footer>
     </div>
 
+    <!-- Modals (Contributors, TNC, Notice, YT, Feedback) remain identical to save space -->
     <div id="contributors-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 p-4 lg:p-10">
         <div class="glass-panel p-6 md:p-10 rounded-3xl w-full max-w-6xl border border-gold/40 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 bg-[#120500]/95" id="contributors-content">
             
@@ -949,6 +950,7 @@
         </div>
     </div>
 
+    <!-- Other Modals (Notice Image, TNC, YT, Feedback) -->
     <div id="notice-image-modal" class="fixed inset-0 z-[150] hidden items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300 opacity-0 p-4" onclick="closeImageModal()">
         <button onclick="closeImageModal()" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-white/60 hover:text-white transition-colors focus:outline-none z-50 bg-black/50 w-12 h-12 rounded-full flex items-center justify-center">
             <i class="fa-solid fa-xmark text-2xl"></i>
@@ -1054,35 +1056,17 @@
     </div>
 
     <script>
-        // NEW: Audio function to play the Sunk Sound
+        // NEW, CLEAN AUDIO LOGIC TIED TO T&C
+        const audioEl = document.getElementById('sunk-audio');
+        let hasPlayedSunk = false;
+
         window.playSunkSound = function() {
-            const audio = document.getElementById('sunk-audio');
-            if (audio) {
-                audio.volume = 0.5; // Adjust volume as needed (0.0 to 1.0)
-                
-                // Store the promise returned by play()
-                const playPromise = audio.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.catch(err => {
-                        console.warn("Audio playback failed:", err.name, err.message);
-                        
-                        // Modern browsers block autoplay without user interaction.
-                        // Only retry on user interaction if it was specifically blocked by the browser.
-                        if (err.name === 'NotAllowedError') {
-                            const playOnInteract = () => {
-                                const interactPromise = audio.play();
-                                if (interactPromise !== undefined) {
-                                    interactPromise.catch(e => console.warn("Audio playback failed on interact:", e.message));
-                                }
-                                // Remove listeners after attempting to play once
-                                ['click', 'touchstart', 'keydown'].forEach(evt => document.removeEventListener(evt, playOnInteract));
-                            };
-                            // Add event listeners to catch the first user interaction
-                            ['click', 'touchstart', 'keydown'].forEach(evt => document.addEventListener(evt, playOnInteract, { once: true }));
-                        }
-                    });
-                }
+            if (audioEl && !hasPlayedSunk) {
+                audioEl.volume = 0.5;
+                audioEl.play().catch(err => {
+                    console.warn("Audio playback failed (check if sunk.mp3 is uploaded correctly):", err.message);
+                });
+                hasPlayedSunk = true;
             }
         };
 
@@ -1336,6 +1320,11 @@
         window.handleTncAction = function(action) {
             localStorage.setItem('bhp_tnc_status', action);
             window.closeTncModal();
+            
+            // Play the sunk sound right when they click "Agree"
+            if (action === 'agree') {
+                window.playSunkSound();
+            }
         };
 
         window.revealNumber = function(buttonElement, encodedStr) {
@@ -1557,10 +1546,7 @@
                     document.body.classList.remove('overflow-hidden');
                     setTimeout(() => {
                         loader.remove();
-                        window.playSunkSound(); // Play sound precisely when loader disappears
                     }, 1000);
-                } else {
-                     window.playSunkSound();
                 }
                 
                 if (!localStorage.getItem('bhp_tnc_status')) {
