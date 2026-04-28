@@ -1377,7 +1377,7 @@
             const membersContainer = document.getElementById('members-rank-grid');
             if (membersContainer) {
                 const sortedMembers = window.membersData.sort((a, b) => a.order - b.order);
-                const displayCount = window.showAllMembers ? sortedMembers.length : 8; // Shows top 8 initially
+                const displayCount = window.showAllMembers ? sortedMembers.length : 4; // Shows top 4 initially
                 const visibleMembers = sortedMembers.slice(0, displayCount);
                 
                 membersContainer.innerHTML = visibleMembers.map(member => `
