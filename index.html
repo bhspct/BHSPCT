@@ -453,7 +453,7 @@
             <div class="absolute inset-0 bg-maroon/20 pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 
-                <div class="text-center mb-10 sm:mb-16 fade-in">
+                <div class="text-center mb-6 sm:mb-8 fade-in">
                     <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Join Us</span>
                     <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Upcoming <span class="text-gold">Gatherings</span></h2>
                     <p class="text-orange-100/80 max-w-2xl mx-auto text-sm sm:text-base px-2">Register easily via Google Forms to participate in our holy gatherings and cultural programs.</p>
@@ -464,9 +464,18 @@
                     </div>
                 </div>
 
-                <div class="max-w-5xl mx-auto">
-                    <div id="upcoming-events-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 h-full">
+                <div class="text-center mb-8 fade-in">
+                    <button id="events-toggle-btn" onclick="toggleEvents()" class="px-6 py-2.5 rounded-full border border-gold/40 text-gold font-bold hover:bg-gold/10 hover:shadow-[0_0_15px_rgba(229,193,88,0.3)] transition-all flex items-center justify-center gap-2 mx-auto group focus:outline-none">
+                        <span id="events-btn-text">View Upcoming Events</span>
+                        <i id="events-btn-icon" class="fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
+
+                <div id="events-more-content" class="overflow-hidden transition-all duration-[800ms] max-h-0 opacity-0 ease-in-out">
+                    <div class="max-w-5xl mx-auto pt-4">
+                        <div id="upcoming-events-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 h-full">
                         </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -556,7 +565,7 @@
 
         <section id="news" class="py-16 md:py-24 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10 sm:mb-16 fade-in">
+                <div class="text-center mb-6 sm:mb-8 fade-in">
                     <span class="text-saffron uppercase tracking-widest text-xs sm:text-sm font-semibold mb-2 block">Current Affairs</span>
                     <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Latest <span class="text-gold">News</span></h2>
                     <div class="flex justify-center items-center gap-2 mt-3 sm:mt-4">
@@ -566,8 +575,19 @@
                     </div>
                 </div>
 
-                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 fade-in">
-                    <!-- Dynamically populated by JS -->
+                <div class="text-center mb-8 fade-in">
+                    <button id="news-toggle-btn" onclick="toggleNews()" class="px-6 py-2.5 rounded-full border border-gold/40 text-gold font-bold hover:bg-gold/10 hover:shadow-[0_0_15px_rgba(229,193,88,0.3)] transition-all flex items-center justify-center gap-2 mx-auto group focus:outline-none">
+                        <span id="news-btn-text">View Latest News</span>
+                        <i id="news-btn-icon" class="fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
+
+                <div id="news-more-content" class="overflow-hidden transition-all duration-[800ms] max-h-0 opacity-0 ease-in-out">
+                    <div class="pt-4">
+                        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                            <!-- Dynamically populated by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1511,7 +1531,7 @@
                 type: 'text',
                 badge: 'Text',
                 title: '🎉 স্বাগতম বার্তা 🎉',
-                content: 'বাংলাদেশ হিন্দু স্টুডেন্ট পরিষদের নতুন ওয়েবসাইটে সবাইকে আন্তরিক স্বাগতম।\n\nএই প্ল্যাটফর্মে শিক্ষার্থীরা একে অপরের সাথে যুক্ত হবে, জ্ঞান ও সংস্কৃতি ভাগাভাগি করবে এবং ঐক্যের বন্ধনকে আরও দৃঢ় করবে।\n\n আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।\n\n— বাংলাদেশ হিন্দু স্টুডেন্ট পরিষদ',
+                content: 'বাংলাদেশ হিন্দু ছাত্র পরিষদের নতুন ওয়েবসাইটে সবাইকে আন্তরিক স্বাগতম।\n\nএই প্ল্যাটফর্মে শিক্ষার্থীরা একে অপরের সাথে যুক্ত হবে, জ্ঞান ও সংস্কৃতি ভাগাভাগি করবে এবং ঐক্যের বন্ধনকে আরও দৃঢ় করবে।\n\n আমরা বিশ্বাস করি, একসাথে কাজ করলে আমাদের ভবিষ্যৎ আরও উজ্জ্বল হবে।\n\n— বাংলাদেশ হিন্দু স্টুডেন্ট পরিষদ',
                 image: ''
             },
             {
@@ -1539,31 +1559,31 @@
         // Replaced old array with the contributors list
         // ==========================================
         window.membersData = [
-            { order: 1, stars: 5, name: "Nishan Kumar Nath", position: "President", bloodGroup: "O+", encodedNumber: "MDE4ODE4NzYyMTM=", img: "nishan.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
-            { order: 2, stars: 4, name: "Papiya Paul", position: "Vice-President", bloodGroup: "A+", encodedNumber: "UGVuZGluZy4uLg==", img: "papiya.jpeg", fallbackColor: "8B0000", skills: "Team Management" },
-            { order: 3, stars: 4, name: "Joydeb Paul", position: "Vice-President", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "joydev.jpeg", fallbackColor: "8B0000" },
-            { order: 4, stars: 4, name: "Rudhra Chakraborty", position: "General Secretary", bloodGroup: "A+", encodedNumber: "MDE2MDIwNTY2NTQ=", img: "rudhra.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
-            { order: 5, stars: 3, name: "Tirtha Majumder", position: "Joint General Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "tirtho.jpeg", fallbackColor: "8B0000" },
-            { order: 6, stars: 3, name: "Oporna Das", position: "Joint General Secretary", bloodGroup: "B+", encodedNumber: "UGVuZGluZy4uLg==", img: "oporna.jpeg", fallbackColor: "8B0000" },
-            { order: 7, stars: 3, name: "Hrithik Chowdhury", position: "Organizing Secretary", bloodGroup: "B+", encodedNumber: "MDE4MDYyOTQxNDM=", img: "hrithik.jpeg", fallbackColor: "8B0000", skills: "Videography" },
-            { order: 8, stars: 3, name: "Swapnil Biswas", position: "Associate Organizing Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "sawpnil.jpeg", fallbackColor: "8B0000" },
-            { order: 9, stars: 3, name: "Aushman Chowdhury", position: "Associate Organizing Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "aushman.jpeg", fallbackColor: "8B0000" },
-            { order: 10, stars: 3, name: "Avi Dey", position: "Office Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzA4NTEwMDY=", img: "avi.jpeg", fallbackColor: "8B0000", skills: "Community Volunteering" },
-            { order: 11, stars: 2, name: "Apurba Chowdhury", position: "Deputy Office Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "opurbo.jpeg", fallbackColor: "8B0000" },
-            { order: 12, stars: 3, name: "Mohan Dey", position: "Finance Secretary", bloodGroup: "A+", encodedNumber: "MDE2MTI5MjM4NTQ=", img: "mohan.jpeg", fallbackColor: "8B0000" },
-            { order: 13, stars: 2, name: "Diganta Aich", position: "Joint Finance Secretary", bloodGroup: "B+", encodedNumber: "MDE2ODU0NjY4NjU=", img: "diganta.jpeg", fallbackColor: "8B0000" },
-            { order: 14, stars: 3, name: "Divyaraj Dhar", position: "Publicity Secretary", bloodGroup: "AB+", encodedNumber: "MDE2MDMxMDE5Njk=", img: "divyaraj.jpeg", fallbackColor: "8B0000", skills: "Graphic Design" },
-            { order: 15, stars: 2, name: "Prachurja Mohajan", position: "Associate Publicity Secretary", bloodGroup: "A-", encodedNumber: "MDE4MzYzNDY2NTE=", img: "prachurjo.jpeg", fallbackColor: "8B0000" },
-            { order: 16, stars: 3, name: "Sanjoy Das", position: "Cultural Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sanjoy.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
-            { order: 17, stars: 2, name: "Tithi Das", position: "Co-Cultural Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "thithi.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
-            { order: 18, stars: 3, name: "Arpita Bhattacharjee", position: "Women's Affairs Secretary", bloodGroup: "AB+", encodedNumber: "UGVuZGluZy4uLg==", img: "arpita.jpeg", fallbackColor: "8B0000" },
-            { order: 19, stars: 3, name: "Niloy Das", position: "Education and Curriculum Affairs Secretary", bloodGroup: "B+", encodedNumber: "MDE0MDYwNzIyNDk=", img: "niloydas.jpeg", fallbackColor: "8B0000" },
-            { order: 20, stars: 3, name: "Sarnab Bhattacharjee", position: "Information and Technology Affairs Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sarnab.gif", fallbackColor: "8B0000", skills: "Programming & Web Design" },
-            { order: 21, stars: 3, name: "Aditya Bhowmik", position: "Religious Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "adittayabhowmik.jpeg", fallbackColor: "8B0000" },
-            { order: 22, stars: 3, name: "Raj Chakroborthy", position: "Legal Affairs Secretary", bloodGroup: "O+", encodedNumber: "MDE4OTA5OTk0ODQ=", img: "raj.jpeg", fallbackColor: "8B0000" },
-            { order: 23, stars: 3, name: "Rajat Das", position: "Social-Welfare Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzU1MzkwMzU=", img: "rajatdas.jpeg", fallbackColor: "8B0000" },
-            { order: 24, stars: 3, name: "Akash Rudra", position: "Sports Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "akashrudhra.jpeg", fallbackColor: "8B0000" },
-            { order: 25, stars: 3, name: "Srikanto Dhar", position: "Student Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shrikantodhor.jpeg", fallbackColor: "8B0000" },
+            { order: 1, stars: 1, name: "Nishan Kumar Nath", position: "President", bloodGroup: "O+", encodedNumber: "MDE4ODE4NzYyMTM=", img: "nishan.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
+            { order: 2, stars: 1, name: "Papiya Paul", position: "Vice-President", bloodGroup: "A+", encodedNumber: "UGVuZGluZy4uLg==", img: "papiya.jpeg", fallbackColor: "8B0000", skills: "Team Management" },
+            { order: 3, stars: 1, name: "Joydeb Paul", position: "Vice-President", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "joydev.jpeg", fallbackColor: "8B0000" },
+            { order: 4, stars: 1, name: "Rudhra Chakraborty", position: "General Secretary", bloodGroup: "A+", encodedNumber: "MDE2MDIwNTY2NTQ=", img: "rudhra.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
+            { order: 5, stars: 1, name: "Tirtha Majumder", position: "Joint General Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "tirtho.jpeg", fallbackColor: "8B0000" },
+            { order: 6, stars: 1, name: "Oporna Das", position: "Joint General Secretary", bloodGroup: "B+", encodedNumber: "UGVuZGluZy4uLg==", img: "oporna.jpeg", fallbackColor: "8B0000" },
+            { order: 7, stars: 1, name: "Hrithik Chowdhury", position: "Organizing Secretary", bloodGroup: "B+", encodedNumber: "MDE4MDYyOTQxNDM=", img: "hrithik.jpeg", fallbackColor: "8B0000", skills: "Videography" },
+            { order: 8, stars: 1, name: "Swapnil Biswas", position: "Associate Organizing Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "sawpnil.jpeg", fallbackColor: "8B0000" },
+            { order: 9, stars: 1, name: "Aushman Chowdhury", position: "Associate Organizing Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "aushman.jpeg", fallbackColor: "8B0000" },
+            { order: 10, stars: 1, name: "Avi Dey", position: "Office Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzA4NTEwMDY=", img: "avi.jpeg", fallbackColor: "8B0000", skills: "Community Volunteering" },
+            { order: 11, stars: 1, name: "Apurba Chowdhury", position: "Deputy Office Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "opurbo.jpeg", fallbackColor: "8B0000" },
+            { order: 12, stars: 1, name: "Mohan Dey", position: "Finance Secretary", bloodGroup: "A+", encodedNumber: "MDE2MTI5MjM4NTQ=", img: "mohan.jpeg", fallbackColor: "8B0000" },
+            { order: 13, stars: 1, name: "Diganta Aich", position: "Joint Finance Secretary", bloodGroup: "B+", encodedNumber: "MDE2ODU0NjY4NjU=", img: "diganta.jpeg", fallbackColor: "8B0000" },
+            { order: 14, stars: 1, name: "Divyaraj Dhar", position: "Publicity Secretary", bloodGroup: "AB+", encodedNumber: "MDE2MDMxMDE5Njk=", img: "divyaraj.jpeg", fallbackColor: "8B0000", skills: "Graphic Design" },
+            { order: 15, stars: 1, name: "Prachurja Mohajan", position: "Associate Publicity Secretary", bloodGroup: "A-", encodedNumber: "MDE4MzYzNDY2NTE=", img: "prachurjo.jpeg", fallbackColor: "8B0000" },
+            { order: 16, stars: 1, name: "Sanjoy Das", position: "Cultural Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sanjoy.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
+            { order: 17, stars: 1, name: "Tithi Das", position: "Co-Cultural Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "thithi.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
+            { order: 18, stars: 1, name: "Arpita Bhattacharjee", position: "Women's Affairs Secretary", bloodGroup: "AB+", encodedNumber: "UGVuZGluZy4uLg==", img: "arpita.jpeg", fallbackColor: "8B0000" },
+            { order: 19, stars: 1, name: "Niloy Das", position: "Education and Curriculum Affairs Secretary", bloodGroup: "B+", encodedNumber: "MDE0MDYwNzIyNDk=", img: "niloydas.jpeg", fallbackColor: "8B0000" },
+            { order: 20, stars: 1, name: "Sarnab Bhattacharjee", position: "Information and Technology Affairs Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sarnab.gif", fallbackColor: "8B0000", skills: "Programming & Web Design" },
+            { order: 21, stars: 1, name: "Aditya Bhowmik", position: "Religious Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "adittayabhowmik.jpeg", fallbackColor: "8B0000" },
+            { order: 22, stars: 1, name: "Raj Chakroborthy", position: "Legal Affairs Secretary", bloodGroup: "O+", encodedNumber: "MDE4OTA5OTk0ODQ=", img: "raj.jpeg", fallbackColor: "8B0000" },
+            { order: 23, stars: 1, name: "Rajat Das", position: "Social-Welfare Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzU1MzkwMzU=", img: "rajatdas.jpeg", fallbackColor: "8B0000" },
+            { order: 24, stars: 1, name: "Akash Rudra", position: "Sports Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "akashrudhra.jpeg", fallbackColor: "8B0000" },
+            { order: 25, stars: 1, name: "Srikanto Dhar", position: "Student Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shrikantodhor.jpeg", fallbackColor: "8B0000" },
             { order: 26, stars: 1, name: "Shanto Dev Nath", position: "Working Member", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shantodevnath.jpeg", fallbackColor: "8B0000", skills: "Video Production & Editing" },
             { order: 27, stars: 1, name: "Durjoy Dev Nath", position: "Working Member", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "durjoydevnath.jpeg", fallbackColor: "8B0000" },
             { order: 28, stars: 1, name: "Pritom Datta", position: "Working Member", bloodGroup: "O+", encodedNumber: "MDE4ODEyOTg5MzY=", img: "pritomdatta.jpeg", fallbackColor: "8B0000" },
@@ -1837,6 +1857,50 @@
                 content.classList.remove('max-h-[1500px]', 'opacity-100');
                 content.classList.add('max-h-0', 'opacity-0');
                 btnText.textContent = "Read More";
+                btnIcon.className = "fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform";
+            }
+        };
+
+        // NEW: Toggle Logic for Events Section
+        window.isEventsExpanded = false;
+        window.toggleEvents = function() {
+            const content = document.getElementById('events-more-content');
+            const btnText = document.getElementById('events-btn-text');
+            const btnIcon = document.getElementById('events-btn-icon');
+            
+            window.isEventsExpanded = !window.isEventsExpanded;
+            
+            if (window.isEventsExpanded) {
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[2000px]', 'opacity-100');
+                btnText.textContent = "Hide Events";
+                btnIcon.className = "fa-solid fa-chevron-up group-hover:-translate-y-1 transition-transform";
+            } else {
+                content.classList.remove('max-h-[2000px]', 'opacity-100');
+                content.classList.add('max-h-0', 'opacity-0');
+                btnText.textContent = "View Upcoming Events";
+                btnIcon.className = "fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform";
+            }
+        };
+
+        // NEW: Toggle Logic for News Section
+        window.isNewsExpanded = false;
+        window.toggleNews = function() {
+            const content = document.getElementById('news-more-content');
+            const btnText = document.getElementById('news-btn-text');
+            const btnIcon = document.getElementById('news-btn-icon');
+            
+            window.isNewsExpanded = !window.isNewsExpanded;
+            
+            if (window.isNewsExpanded) {
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[2000px]', 'opacity-100');
+                btnText.textContent = "Hide News";
+                btnIcon.className = "fa-solid fa-chevron-up group-hover:-translate-y-1 transition-transform";
+            } else {
+                content.classList.remove('max-h-[2000px]', 'opacity-100');
+                content.classList.add('max-h-0', 'opacity-0');
+                btnText.textContent = "View Latest News";
                 btnIcon.className = "fa-solid fa-chevron-down group-hover:translate-y-1 transition-transform";
             }
         };
