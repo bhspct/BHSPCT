@@ -563,7 +563,6 @@
             <div class="overflow-y-auto custom-scrollbar flex-grow pt-8 sm:pt-10 pb-8 px-2 sm:px-4">
                 <div class="flex flex-wrap justify-center gap-6 lg:gap-8">
                     
-
                     <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
                         <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
@@ -958,7 +957,7 @@
 
  
 
-                                          <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                                         <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
                         <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <img src="sarnab.gif" onerror="this.src='https://ui-avatars.com/api/?name=Sarnab+B&background=8B0000&color=E5C158'" alt="Sarnab Bhattacharjee" draggable="false" class="w-full h-full rounded-full object-cover">
@@ -1210,7 +1209,7 @@
 
 
 
-                                                                                   <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
+                                                                                             <div class="w-[90vw] sm:w-[320px] shrink-0 relative bg-gradient-to-b from-black/80 to-maroon/20 backdrop-blur-md border border-gold/20 rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(229,193,88,0.15)] overflow-hidden">
                         <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-saffron/20 rounded-full blur-[40px] group-hover:bg-saffron/40 transition-all duration-700 pointer-events-none"></div>
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-gold/40 p-1 mb-4 sm:mb-5 relative z-10 group-hover:border-saffron group-hover:scale-105 transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                             <img src="ranabirdey.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Durjoy+N&background=8B0000&color=E5C158'" alt="Ranbir Dey" draggable="false" class="w-full h-full rounded-full object-cover">
@@ -1237,7 +1236,6 @@
 
                      
                     
-
 
                 </div>
             </div>
@@ -1447,11 +1445,6 @@
         // ==========================================
         // NEW: NOTICES DATABASE
         // ==========================================
-        /* * HOW TO ADD NOTICES IN THE FUTURE:
-         * 1. Copy a block below.
-         * 2. Set type to 'text' for written notices or 'image' for flyers.
-         * 3. Paste it at the top of the list!
-         */
         window.noticesData = [
             {
                 id: 'notice-1',
@@ -1482,33 +1475,37 @@
             }
         ];
 
+        // ==========================================
+        // UPDATED: MEMBERS DATABASE (EXECUTIVE COMMITTEE)
+        // Replaced old array with the contributors list
+        // ==========================================
         window.membersData = [
-            { order: 1, stars: 1, name: "Nishan Kumar Nath", position: "President", bloodGroup: "O+", encodedNumber: "MDE4ODE4NzYyMTM=", img: "nishan.jpeg", fallbackColor: "8B0000" },
-            { order: 2, stars: 1, name: "Papiya Paul", position: "Vice-President", bloodGroup: "A+", encodedNumber: "UGVuZGluZy4uLg==", img: "papiya.jpeg", fallbackColor: "8B0000" },
-            { order: 3, stars: 1, name: "Joydeb Paul", position: "Vice-President", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "joydev.jpeg", fallbackColor: "8B0000" },
-            { order: 4, stars: 1, name: "Rudhra Chakraborty", position: "General Secretary", bloodGroup: "A+", encodedNumber: "MDE2MDIwNTY2NTQ=", img: "rudhra.jpeg", fallbackColor: "8B0000" },
-            { order: 5, stars: 1, name: "Tirtha Majumder", position: "Joint General Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "tirtho.jpeg", fallbackColor: "8B0000" },
-            { order: 6, stars: 1, name: "Oporna Das", position: "Joint General Secretary", bloodGroup: "B+", encodedNumber: "UGVuZGluZy4uLg==", img: "oporna.jpeg", fallbackColor: "8B0000" },
-            { order: 7, stars: 1, name: "Hrithik Chowdhury", position: "Organizing Secretary", bloodGroup: "B+", encodedNumber: "MDE4MDYyOTQxNDM=", img: "hrithik.jpeg", fallbackColor: "8B0000" },
-            { order: 8, stars: 1, name: "Swapnil Biswas", position: "Associate Organizing Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "sawpnil.jpeg", fallbackColor: "8B0000" },
-            { order: 9, stars: 1, name: "Aushman Chowdhury", position: "Associate Organizing Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "aushman.jpeg", fallbackColor: "8B0000" },
-            { order: 10, stars: 1, name: "Avi Dey", position: "Office Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzA4NTEwMDY=", img: "avi.jpeg", fallbackColor: "8B0000" },
-            { order: 11, stars: 1, name: "Apurba Chowdhury", position: "Deputy Office Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "opurbo.jpeg", fallbackColor: "8B0000" },
-            { order: 12, stars: 1, name: "Mohan Dey", position: "Finance Secretary", bloodGroup: "A+", encodedNumber: "MDE2MTI5MjM4NTQ=", img: "mohan.jpeg", fallbackColor: "8B0000" },
-            { order: 13, stars: 1, name: "Diganta Aich", position: "Joint Finance Secretary", bloodGroup: "B+", encodedNumber: "MDE2ODU0NjY4NjU=", img: "diganta.jpeg", fallbackColor: "8B0000" },
-            { order: 14, stars: 1, name: "Divyaraj Dhar", position: "Publicity Secretary", bloodGroup: "AB+", encodedNumber: "MDE2MDMxMDE5Njk=", img: "divyaraj.jpeg", fallbackColor: "8B0000" },
-            { order: 15, stars: 1, name: "Prachurja Mohajan", position: "Associate Publicity Secretary", bloodGroup: "A-", encodedNumber: "MDE4MzYzNDY2NTE=", img: "prachurjo.jpeg", fallbackColor: "8B0000" },
-            { order: 16, stars: 1, name: "Sanjoy Das", position: "Cultural Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sanjoy.jpeg", fallbackColor: "8B0000" },
-            { order: 17, stars: 1, name: "Tithi Das", position: "Co-Cultural Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "thithi.jpeg", fallbackColor: "8B0000" },
-            { order: 18, stars: 1, name: "Arpita Bhattacharjee", position: "Women's Affairs Secretary", bloodGroup: "AB+", encodedNumber: "UGVuZGluZy4uLg==", img: "arpita.jpeg", fallbackColor: "8B0000" },
-            { order: 19, stars: 1, name: "Niloy Das", position: "Education and Curriculum Affairs Secretary", bloodGroup: "B+", encodedNumber: "MDE0MDYwNzIyNDk=", img: "niloydas.jpeg", fallbackColor: "8B0000" },
-            { order: 20, stars: 1, name: "Sarnab Bhattacharjee", position: "Information and Technology Affairs Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sarnab.gif", fallbackColor: "8B0000" },
-            { order: 21, stars: 1, name: "Aditya Bhowmik", position: "Religious Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "adittayabhowmik.jpeg", fallbackColor: "8B0000" },
-            { order: 22, stars: 1, name: "Raj Chakroborthy", position: "Legal Affairs Secretary", bloodGroup: "O+", encodedNumber: "MDE4OTA5OTk0ODQ=", img: "raj.jpeg", fallbackColor: "8B0000" },
-            { order: 23, stars: 1, name: "Rajat Das", position: "Social-Welfare Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzU1MzkwMzU=", img: "rajatdas.jpeg", fallbackColor: "8B0000" },
-            { order: 24, stars: 1, name: "Akash Rudra", position: "Sports Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "akashrudhra.jpeg", fallbackColor: "8B0000" },
-            { order: 25, stars: 1, name: "Srikanto Dhar", position: "Student Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shrikantodhor.jpeg", fallbackColor: "8B0000" },
-            { order: 26, stars: 1, name: "Shanto Dev Nath", position: "Working Member", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shantodevnath.jpeg", fallbackColor: "8B0000" },
+            { order: 1, stars: 5, name: "Nishan Kumar Nath", position: "President", bloodGroup: "O+", encodedNumber: "MDE4ODE4NzYyMTM=", img: "nishan.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
+            { order: 2, stars: 4, name: "Papiya Paul", position: "Vice-President", bloodGroup: "A+", encodedNumber: "UGVuZGluZy4uLg==", img: "papiya.jpeg", fallbackColor: "8B0000", skills: "Team Management" },
+            { order: 3, stars: 4, name: "Joydeb Paul", position: "Vice-President", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "joydev.jpeg", fallbackColor: "8B0000" },
+            { order: 4, stars: 4, name: "Rudhra Chakraborty", position: "General Secretary", bloodGroup: "A+", encodedNumber: "MDE2MDIwNTY2NTQ=", img: "rudhra.jpeg", fallbackColor: "8B0000", skills: "Leadership, Public Speaking" },
+            { order: 5, stars: 3, name: "Tirtha Majumder", position: "Joint General Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "tirtho.jpeg", fallbackColor: "8B0000" },
+            { order: 6, stars: 3, name: "Oporna Das", position: "Joint General Secretary", bloodGroup: "B+", encodedNumber: "UGVuZGluZy4uLg==", img: "oporna.jpeg", fallbackColor: "8B0000" },
+            { order: 7, stars: 3, name: "Hrithik Chowdhury", position: "Organizing Secretary", bloodGroup: "B+", encodedNumber: "MDE4MDYyOTQxNDM=", img: "hrithik.jpeg", fallbackColor: "8B0000", skills: "Videography" },
+            { order: 8, stars: 3, name: "Swapnil Biswas", position: "Associate Organizing Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "sawpnil.jpeg", fallbackColor: "8B0000" },
+            { order: 9, stars: 3, name: "Aushman Chowdhury", position: "Associate Organizing Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "aushman.jpeg", fallbackColor: "8B0000" },
+            { order: 10, stars: 3, name: "Avi Dey", position: "Office Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzA4NTEwMDY=", img: "avi.jpeg", fallbackColor: "8B0000", skills: "Community Volunteering" },
+            { order: 11, stars: 2, name: "Apurba Chowdhury", position: "Deputy Office Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "opurbo.jpeg", fallbackColor: "8B0000" },
+            { order: 12, stars: 3, name: "Mohan Dey", position: "Finance Secretary", bloodGroup: "A+", encodedNumber: "MDE2MTI5MjM4NTQ=", img: "mohan.jpeg", fallbackColor: "8B0000" },
+            { order: 13, stars: 2, name: "Diganta Aich", position: "Joint Finance Secretary", bloodGroup: "B+", encodedNumber: "MDE2ODU0NjY4NjU=", img: "diganta.jpeg", fallbackColor: "8B0000" },
+            { order: 14, stars: 3, name: "Divyaraj Dhar", position: "Publicity Secretary", bloodGroup: "AB+", encodedNumber: "MDE2MDMxMDE5Njk=", img: "divyaraj.jpeg", fallbackColor: "8B0000", skills: "Graphic Design" },
+            { order: 15, stars: 2, name: "Prachurja Mohajan", position: "Associate Publicity Secretary", bloodGroup: "A-", encodedNumber: "MDE4MzYzNDY2NTE=", img: "prachurjo.jpeg", fallbackColor: "8B0000" },
+            { order: 16, stars: 3, name: "Sanjoy Das", position: "Cultural Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sanjoy.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
+            { order: 17, stars: 2, name: "Tithi Das", position: "Co-Cultural Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "thithi.jpeg", fallbackColor: "8B0000", skills: "Vocal Performance" },
+            { order: 18, stars: 3, name: "Arpita Bhattacharjee", position: "Women's Affairs Secretary", bloodGroup: "AB+", encodedNumber: "UGVuZGluZy4uLg==", img: "arpita.jpeg", fallbackColor: "8B0000" },
+            { order: 19, stars: 3, name: "Niloy Das", position: "Education and Curriculum Affairs Secretary", bloodGroup: "B+", encodedNumber: "MDE0MDYwNzIyNDk=", img: "niloydas.jpeg", fallbackColor: "8B0000" },
+            { order: 20, stars: 3, name: "Sarnab Bhattacharjee", position: "Information and Technology Affairs Secretary", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "sarnab.gif", fallbackColor: "8B0000", skills: "Programming & Web Design" },
+            { order: 21, stars: 3, name: "Aditya Bhowmik", position: "Religious Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "adittayabhowmik.jpeg", fallbackColor: "8B0000" },
+            { order: 22, stars: 3, name: "Raj Chakroborthy", position: "Legal Affairs Secretary", bloodGroup: "O+", encodedNumber: "MDE4OTA5OTk0ODQ=", img: "raj.jpeg", fallbackColor: "8B0000" },
+            { order: 23, stars: 3, name: "Rajat Das", position: "Social-Welfare Secretary", bloodGroup: "A+", encodedNumber: "MDE4MzU1MzkwMzU=", img: "rajatdas.jpeg", fallbackColor: "8B0000" },
+            { order: 24, stars: 3, name: "Akash Rudra", position: "Sports Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "akashrudhra.jpeg", fallbackColor: "8B0000" },
+            { order: 25, stars: 3, name: "Srikanto Dhar", position: "Student Affairs Secretary", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shrikantodhor.jpeg", fallbackColor: "8B0000" },
+            { order: 26, stars: 1, name: "Shanto Dev Nath", position: "Working Member", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "shantodevnath.jpeg", fallbackColor: "8B0000", skills: "Video Production & Editing" },
             { order: 27, stars: 1, name: "Durjoy Dev Nath", position: "Working Member", bloodGroup: "Pending", encodedNumber: "UGVuZGluZy4uLg==", img: "durjoydevnath.jpeg", fallbackColor: "8B0000" },
             { order: 28, stars: 1, name: "Pritom Datta", position: "Working Member", bloodGroup: "O+", encodedNumber: "MDE4ODEyOTg5MzY=", img: "pritomdatta.jpeg", fallbackColor: "8B0000" },
             { order: 29, stars: 1, name: "Hridoy Das", position: "Working Member", bloodGroup: "", encodedNumber: "UGVuZGluZy4uLg==", img: "hridoydas.jpeg", fallbackColor: "8B0000" },
@@ -1673,6 +1670,9 @@
         };
 
         window.revealNumber = function(buttonElement, encodedStr) {
+            // Updated to handle cases where there is no phone number
+            if (!encodedStr || encodedStr === "") encodedStr = "UGVuZGluZy4uLg=="; // Default to Pending...
+            
             const decoded = atob(encodedStr);
             const parent = buttonElement.parentNode;
             buttonElement.remove();
@@ -1790,10 +1790,16 @@
                         
                         <div class="w-full h-[1px] bg-gold/20 mb-4 group-hover:bg-gold/50 transition-colors relative z-10"></div>
                         
-                        <div class="w-full space-y-3 relative z-10 mt-auto">
+                        <div class="w-full space-y-2.5 relative z-10 mt-auto">
+                            ${member.skills ? `
+                            <div class="bg-black/40 px-3 py-2 rounded-xl border border-gold/10 group-hover:border-gold/30 transition-colors shadow-inner text-center">
+                                <span class="text-gold text-[9px] uppercase tracking-widest block mb-0.5 font-bold"><i class="fa-solid fa-star-of-life mr-1"></i>Expertise</span>
+                                <span class="text-white/90 font-medium text-[11px] sm:text-xs leading-snug block">${member.skills}</span>
+                            </div>
+                            ` : ''}
                             <div class="flex justify-between items-center bg-black/40 px-3 py-2.5 rounded-xl border border-gold/10 group-hover:border-gold/30 transition-colors shadow-inner">
                                 <span class="text-orange-100/60 text-xs sm:text-sm flex items-center"><i class="fa-solid fa-droplet text-red-500 mr-2 animate-pulse"></i>Blood</span>
-                                <span class="text-white font-bold text-xs sm:text-sm tracking-wider drop-shadow-md">${member.bloodGroup}</span>
+                                <span class="text-white font-bold text-xs sm:text-sm tracking-wider drop-shadow-md">${member.bloodGroup || 'Pending'}</span>
                             </div>
                             <div class="flex justify-between items-center bg-black/40 px-3 py-2.5 rounded-xl border border-gold/10 group-hover:border-gold/30 transition-colors shadow-inner">
                                 <span class="text-orange-100/60 text-xs sm:text-sm flex items-center"><i class="fa-solid fa-phone text-green-500 mr-2"></i>Phone</span>
